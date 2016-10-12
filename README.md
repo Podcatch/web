@@ -1,2 +1,2 @@
 # podcatch.github.io
-The client for the 
+Client for Podcatch
