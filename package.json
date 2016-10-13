@@ -1,0 +1,28 @@
+{
+  "name": "podcatch.github.io",
+  "version": "1.0.0",
+  "description": "Client for Podcatch.",
+  "devDependencies": {
+    "browser-sync": "^2.17.2",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "ngrok": "^2.2.3",
+    "run-sequence": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Podcatch/podcatch.github.io.git"
+  },
+  "author": "Brandon Semilla (grandonbroseph+gh@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Podcatch/podcatch.github.io/issues"
+  },
+  "homepage": "https://github.com/Podcatch/podcatch.github.io#readme"
+}
