@@ -21,6 +21,10 @@ button {
   border: 0;
 }
 
+ul, ol {
+  list-style: none;
+}
+
 .image {
   background-color: black;
   background-size: cover;

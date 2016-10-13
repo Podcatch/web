@@ -10,11 +10,13 @@ h1 {
   display: flex;
   overflow-x: hidden;
   font-size: 3.5vw;
+  background: $color-box;
 }
 
 aside {
   position: absolute;
-  height: 100%;
+  display: flex;
+  flex: 1;
   transition: width .5s;
   nav {
     width: $aside-width;
@@ -45,8 +47,6 @@ aside {
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   z-index: 1;
   box-shadow: 0 -8px 32px rgba(black, .5);
   &.nudge {
@@ -56,8 +56,7 @@ aside {
 
 .content {
   position: relative;
-  margin: auto;
-  width: 85%;
+  padding: 16px 5%
 }
 
 header {
@@ -112,6 +111,46 @@ section {
   padding: 1.25rem 2rem;
 }
 
+.cards {
+  display: flex;
+  flex-flow: wrap;
+  padding: 16px;
+}
+
+.card-wrap {
+  padding: 16px;
+  width: 100%;
+}
+
+.card {
+  border-radius: 4px;
+  background: white;
+  font-size: 0;
+  box-shadow: 0 2px 8px rgba(black, .33);
+  img {
+    width: 100%;
+  }
+  .content {
+    color: gray;
+    padding: 24px 10%;
+    h3 {
+      padding: 0;
+      font-size: 1rem;
+      font-weight: bold;
+      padding-bottom: 8px;
+    }
+    .break { // hr?
+      height: 1px;
+      background: linear-gradient(to right, gray, transparent)
+    }
+    p {
+      margin: 0;
+      padding-top: 16px;
+      font-size: 1rem;
+    }
+  }
+}
+
 h2 {
   font-size: 1.25em;
 }
@@ -123,7 +162,6 @@ h3 {
 }
 
 p {
-  text-align: justify;
   line-height: 1.5;
   font-size: 1em;
   &:not(:first-child) {
@@ -141,6 +179,9 @@ p {
 @media (min-width: 480px) {
   #wrap {
     font-size: 1rem;
+  }
+  .card-wrap {
+    width: calc(100% / 2);
   }
 }
 
@@ -160,17 +201,35 @@ p {
     left: 0;
     transition: none;
   }
+  // .cards .card .content h3 {
+  //   font-size: 1.25rem;
+  // }
+  .card-wrap {
+    width: 100%;
+  }
+}
+
+@media (min-width: 720px) {
+  .card-wrap {
+    width: calc(100% / 2);
+  }
 }
 
 @media (min-width: 960px) {
-  section {
-    .content {
-      width: 85%;
-      margin: 16px auto;
-    }
-  }
   .box {
     padding: 3% 5%;
     border-radius: 4px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .card-wrap {
+    width: calc(100% / 3);
+  }
+}
+
+@media (min-width: 1600px) {
+  .card-wrap {
+    width: calc(100% / 4);
   }
 }

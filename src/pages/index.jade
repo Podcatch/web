@@ -1,9 +1,18 @@
+mixin card(image)
+  li.card-wrap
+    .card
+      img(src='docs/images/#{image}.jpg')
+      .content
+        h3= image.toUpperCase()
+        .break
+        block
+
 doctype
 html
   head
     title Podcatch
     meta(name='viewport' content='initial-scale=1')
-    link(href='https://fonts.googleapis.com/css?family=Roboto:100,400' rel='stylesheet' type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:100,400,700' rel='stylesheet' type='text/css')
     link(href='docs/styles/main.css' type='text/css' rel='stylesheet')
   body
     #wrap
@@ -25,5 +34,16 @@ html
             .box
               h2 Lorem Ip-sama's Manifesto
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            ul.cards
+              +card('science-vs')
+                p science ruuules
+              +card('surprisingly-awesome')
+                p stockton
+              +card('start-up')
+                p shut-up
+              +card('reply-all')
+                p Witty text
+              +card('heavyweight')
+                p Maybe you've laid awake imagining how it could have been, how it might yet be, but the moment to act was never right.
     script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js')
     script(src='docs/scripts/main.js')

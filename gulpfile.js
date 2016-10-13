@@ -43,8 +43,7 @@ gulp.task('scripts', function() {
 gulp.task('images', function(){
     return gulp.src(start+'/images/**/*.+(png|jpg|gif|svg)')
                .pipe(cache(imagemin()))
-               .pipe(gulp.dest(finish+'/images/'))
-               .pipe(browserSync.reload({stream: true}))
+               .pipe(gulp.dest(finish+'/images'))
 })
 
 gulp.task('clean', function() {
@@ -56,10 +55,9 @@ gulp.task('build', ['clean'], function() {
 })
 
 gulp.task('watch', ['build'], function() {
-  gulp.watch(start+'/pages/**/*.jade', ['pages'])
+  gulp.watch(start+'/pages/**/*.jade', ['pages', 'images'])
   gulp.watch(start+'/styles/**/*.scss', ['styles'])
   gulp.watch(start+'/scripts/**/*.js', ['scripts'])
-  gulp.watch(start+'/images/**/*.*', ['images'])
 })
 
 gulp.task('serve', function() {
