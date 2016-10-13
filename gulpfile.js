@@ -21,7 +21,7 @@ const finish = config.root + '/' + config.finish
 gulp.task('pages', function() {
   return gulp.src(start+'/pages/index.jade')
              .pipe(jade())
-             .pipe(gulp.dest(finish))
+             .pipe(gulp.dest(config.root))
              .pipe(browserSync.reload({stream: true}))
 })
 
@@ -66,7 +66,7 @@ gulp.task('serve', function() {
   browserSync.init({
     port: config.port,
     server: {
-      baseDir: finish
+      baseDir: config.root
     }
   })
 })
