@@ -1,6 +1,7 @@
 new Vue({
   el: '#wrap',
   data: {
-    aside: false
+    showSidebar: false,
+    showModal:   false
   }
 })

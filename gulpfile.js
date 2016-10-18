@@ -3,6 +3,7 @@ const jade         = require('gulp-jade')
 const sass         = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin     = require('gulp-imagemin')
+const imageResize  = require('gulp-image-resize')
 const cache        = require('gulp-cache')
 const browserify   = require('gulp-browserify')
 const browserSync  = require('browser-sync').create()
@@ -42,6 +43,7 @@ gulp.task('scripts', function() {
 
 gulp.task('images', function(){
     return gulp.src(start+'/images/**/*.+(png|jpg|gif|svg)')
+              //  .pipe(imageResize())
                .pipe(cache(imagemin()))
                .pipe(gulp.dest(finish+'/images'))
 })
@@ -63,6 +65,7 @@ gulp.task('watch', ['build'], function() {
 gulp.task('serve', function() {
   browserSync.init({
     port: config.port,
+    notify: false,
     server: {
       baseDir: config.root
     }

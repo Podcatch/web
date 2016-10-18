@@ -1,6 +1,13 @@
+$font-sans-serif: Roboto, sans-serif;
+
 $color-theme:    #400580;
-$color-box:      #242436;
+$color-dark:     #242436;
 $color-offwhite: #dedeed;
-$color-content:  gray;
-$header-height: 4em;
-$aside-width: 15em;
+$color-content:  darkgray;
+$color-heading:  gray;
+
+$header-height: 48px;
+$sidebar-width: 200px;
+
+$shadow:        0 2px 4px rgba(black, .25);
+$shadow-subtle: 0 4px 8px rgba(black, .1);
