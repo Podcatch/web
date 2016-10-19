@@ -14,13 +14,17 @@
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^2.3.2",
     "ngrok": "^2.2.3",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "bcryptjs": "^2.3.0",
+    "feedparser": "^1.1.5",
+    "pouchdb": "^6.0.6",
+    "pouchdb-authentication": "^0.5.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Podcatch/podcatch.github.io.git"
   },
-  "author": "Brandon Semilla (grandonbroseph+gh@gmail.com)",
+  "author": "Brandon Semilla (grandonbroseph+gh@gmail.com) and Jelani Thompson (jelani.thompson@outlook.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Podcatch/podcatch.github.io/issues"

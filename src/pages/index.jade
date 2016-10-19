@@ -19,13 +19,14 @@ mixin modal
     section.modal-title-section
       span.modal-title Podcatch
     section.modal-input-section
+      form(action='#' name='login' method='post')
       .modal-input-wrap
-        input.modal-item.modal-input.username(placeholder='Username')
+        input.modal-item.modal-input.username(name='username' placeholder='Username')
         i.modal-icon.material-icons person
         .modal-input-tab
         .modal-input-border
       .modal-input-wrap
-        input.modal-item.modal-input.password(placeholder='Password' type='password')
+        input.modal-item.modal-input.password(name='password' placeholder='Password' type='password')
         i.modal-icon.material-icons lock
         .modal-input-tab
         .modal-input-border
