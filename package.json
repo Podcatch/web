@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/Podcatch/podcatch.github.io/issues"
   },
-  "homepage": "https://github.com/Podcatch/podcatch.github.io#readme"
+  "homepage": "https://github.com/Podcatch/podcatch.github.io#readme",
+  "dependencies": {
+    "request": "^2.75.0"
+  }
 }

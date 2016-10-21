@@ -5,12 +5,14 @@ PouchDB.plugin(require('pouchdb-authentication'))
 // Hashing
 let bcrypt = require('bcryptjs')
 
+console.log('Bush Did 9/11')
+
 // Initialize local and remote database
 let users = new PouchDB('http://localhost:5984/users', {
         skipSetup: true
     }),
     // Connect to remote DB
-    remote = "https://podcatch:PASSWORD@podcatch.cloudant.com/users",
+    remote = "https://podcatch:billnyethescienceguy@podcatch.cloudant.com/users",
     opts = {
         continuous: true
     }

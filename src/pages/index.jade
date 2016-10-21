@@ -19,7 +19,8 @@ mixin modal
     section.modal-title-section
       span.modal-title Podcatch
     section.modal-input-section
-      form(action='#' name='login' method='post')
+      //- This form is where we handle sending POST data to CouchDB with design docs
+      form(action='/users' name='login' method='post')
       .modal-input-wrap
         input.modal-item.modal-input.username(name='username' placeholder='Username')
         i.modal-icon.material-icons person
@@ -82,4 +83,4 @@ html
         footer#footer
           span#footer-text &copy;2016 Podcatch.
     script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js')
-    script(src='docs/scripts/main.js')
+    script(src='src/scripts/main.js')
