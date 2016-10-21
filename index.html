@@ -1,1 +1,82 @@
-<!DOCTYPE html><html><head><title>Podcatch</title><meta name="viewport" content="initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Material+Icons" rel="stylesheet" type="text/css"><link href="docs/styles/main.css" type="text/css" rel="stylesheet"></head><body><div id="wrap"><div v-bind:class="{visible: showModal}" class="overlay"><div class="modal"><button v-on:click="showModal = false" class="modal-close"><i class="material-icons modal-close-icon">close</i></button><section class="modal-title-section"><span class="modal-title">Podcatch</span></section><section class="modal-input-section"><form action="/users" name="login" method="post"></form><div class="modal-input-wrap"><input name="username" placeholder="Username" class="modal-item modal-input username"/><i class="modal-icon material-icons">person</i><div class="modal-input-tab"></div><div class="modal-input-border"></div></div><div class="modal-input-wrap"><input name="password" placeholder="Password" type="password" class="modal-item modal-input password"/><i class="modal-icon material-icons">lock</i><div class="modal-input-tab"></div><div class="modal-input-border"></div></div></section><section class="modal-button-section"><button type="submit" class="modal-item modal-button submit">Login</button></section></div></div><aside id="sidebar"><nav id="nav"><header id="nav-header"><i id="nav-icon" class="nav-header-item material-icons">menu</i><h3 id="nav-title" class="nav-header-item">Menu</h3></header><ul id="nav-list"><li class="nav-entry"><a class="nav-link">Hustle</a></li><li class="nav-entry"><a class="nav-link">Loyalty</a></li><li class="nav-entry"><a class="nav-link">Respek</a></li></ul></nav></aside><article id="article" v-bind:class="{nudge: showSidebar}"><header id="header"><section id="brand" class="header-section"><button id="menu-button" class="header-item header-icon brand-item brand-icon"><i id="menu-icon" v-on:click="showSidebar = true" v-if="!showSidebar" class="material-icons">menu</i><i id="menu-icon" v-on:click="showSidebar = false" v-else class="material-icons">close</i></button><h1 id="title" class="header-item header-text brand-item brand-text">Podcatch</h1></section><button id="meta" v-on:click="showModal = true" class="header-section"><span class="header-item header-text meta-item meta-text">Login</span><i class="header-item header-icon meta-item meta-icon material-icons">person</i></button></header><section id="content-wrap"><div id="banner" class="banner image"></div><div id="content"><section class="content-section box"><h2>Lorem Ip-sama's Manifesto</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></section><section id="cards" class="content-section"><div class="card-wrap"><div class="card"><img src="docs/images/science-vs.jpg" class="card-image"/></div></div><div class="card-wrap"><div class="card"><img src="docs/images/startup.jpg" class="card-image"/></div></div><div class="card-wrap"><div class="card"><img src="docs/images/surprisingly-awesome.jpg" class="card-image"/></div></div><div class="card-wrap"><div class="card"><img src="docs/images/reply-all.jpg" class="card-image"/></div></div><div class="card-wrap"><div class="card"><img src="docs/images/heavyweight.jpg" class="card-image"/></div></div></section></div></section><footer id="footer"><span id="footer-text">&copy;2016 Podcatch.</span></footer></article></div><script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script><script src="src/scripts/main.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Podcatch</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="docs/styles/main.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrap">
+        <div v-bind:class="{visible: showModal}" class="overlay">
+            <div class="modal"><button v-on:click="showModal = false" class="modal-close"><i class="material-icons modal-close-icon">close</i></button>
+                <section class="modal-title-section"><span class="modal-title">Podcatch</span></section>
+                <section class="modal-input-section">
+                    <form action="/users" name="login" method="post"></form>
+                    <div class="modal-input-wrap"><input name="username" placeholder="Username" class="modal-item modal-input username" /><i class="modal-icon material-icons">person</i>
+                        <div class="modal-input-tab"></div>
+                        <div class="modal-input-border"></div>
+                    </div>
+                    <div class="modal-input-wrap"><input name="password" placeholder="Password" type="password" class="modal-item modal-input password" /><i class="modal-icon material-icons">lock</i>
+                        <div class="modal-input-tab"></div>
+                        <div class="modal-input-border"></div>
+                    </div>
+                </section>
+                <section class="modal-button-section"><button type="submit" class="modal-item modal-button submit">Login</button></section>
+            </div>
+        </div>
+        <aside id="sidebar">
+            <nav id="nav">
+                <header id="nav-header"><i id="nav-icon" class="nav-header-item material-icons">menu</i>
+                    <h3 id="nav-title" class="nav-header-item">Menu</h3></header>
+                <ul id="nav-list">
+                    <li class="nav-entry"><a class="nav-link">Hustle</a></li>
+                    <li class="nav-entry"><a class="nav-link">Loyalty</a></li>
+                    <li class="nav-entry"><a class="nav-link">Respek</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <article id="article" v-bind:class="{nudge: showSidebar}">
+            <header id="header">
+                <section id="brand" class="header-section"><button id="menu-button" class="header-item header-icon brand-item brand-icon"><i id="menu-icon" v-on:click="showSidebar = true" v-if="!showSidebar" class="material-icons">menu</i><i id="menu-icon" v-on:click="showSidebar = false" v-else class="material-icons">close</i></button>
+                    <h1
+                        id="title" class="header-item header-text brand-item brand-text">Podcatch</h1>
+                </section><button id="meta" v-on:click="showModal = true" class="header-section"><span class="header-item header-text meta-item meta-text">Login</span><i class="header-item header-icon meta-item meta-icon material-icons">person</i></button></header>
+            <section
+                id="content-wrap">
+                <div id="banner" class="banner image"></div>
+                <div id="content">
+                    <section class="content-section box">
+                        <h2>Lorem Ip-sama's Manifesto</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </section>
+                    <section id="cards" class="content-section">
+                        <div class="card-wrap">
+                            <div class="card"><img src="docs/images/science-vs.jpg" class="card-image" /></div>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card"><img src="docs/images/startup.jpg" class="card-image" /></div>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card"><img src="docs/images/surprisingly-awesome.jpg" class="card-image" /></div>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card"><img src="docs/images/reply-all.jpg" class="card-image" /></div>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card"><img src="docs/images/heavyweight.jpg" class="card-image" /></div>
+                        </div>
+                    </section>
+                </div>
+                </section>
+                <footer id="footer"><span id="footer-text">&copy;2016 Podcatch.</span></footer>
+        </article>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script src="src/scripts/main.js"></script>
+</body>
+
+</html>
