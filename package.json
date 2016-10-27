@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Client for Podcatch.",
   "devDependencies": {
+    "bcryptjs": "^2.3.0",
     "browser-sync": "^2.17.2",
     "del": "^2.2.2",
+    "feedparser": "^1.1.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-browserify": "^0.5.1",
@@ -13,12 +15,11 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^2.3.2",
+    "gulp-shell": "^0.5.2",
     "ngrok": "^2.2.3",
-    "run-sequence": "^1.2.2",
-    "bcryptjs": "^2.3.0",
-    "feedparser": "^1.1.5",
     "pouchdb": "^6.0.6",
-    "pouchdb-authentication": "^0.5.5"
+    "pouchdb-authentication": "^0.5.5",
+    "run-sequence": "^1.2.2"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,10 @@
   },
   "homepage": "https://github.com/Podcatch/podcatch.github.io#readme",
   "dependencies": {
-    "request": "^2.75.0"
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6",
+    "request": "^2.75.0",
+    "vue": "^2.0.3",
+    "vue-router": "^2.0.1"
   }
 }

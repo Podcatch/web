@@ -50,6 +50,7 @@ function login(username, password) {
     users.get(username, function(err, doc) {
         if (err) {
             return console.log(err);
+            console.log('You have entered an invalid username or password')
         }
         console.log(bcrypt.compareSync(password, doc.pass))
     })

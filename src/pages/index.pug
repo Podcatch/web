@@ -1,0 +1,87 @@
+mixin sidebar
+    aside#sidebar
+        nav#nav
+            header#nav-header
+                i#nav-icon.nav-header-item.material-icons menu
+                h3#nav-title.nav-header-item Menu
+            ul#nav-list
+                li.nav-entry
+                    a.nav-link Hustle
+                li.nav-entry
+                    a.nav-link Smaht
+                li.nav-entry
+                    a.nav-link Respek
+
+mixin modal
+    .modal
+        button.modal-close(v-on:click='showModal = false')
+            i.material-icons.modal-close-icon close
+        section.modal-title-section
+            span.modal-title Podcatch
+        section.modal-input-section
+            //- This form is where we handle routing with vue-router
+            form(action='/login' name='login' method='post')
+            .modal-input-wrap
+                input.modal-item.modal-input.username(name='username' placeholder='Username')
+                i.modal-icon.material-icons person
+                .modal-input-tab
+                .modal-input-border
+            .modal-input-wrap
+                input.modal-item.modal-input.password(name='password' placeholder='Password' type='password')
+                i.modal-icon.material-icons lock
+                .modal-input-tab
+                .modal-input-border
+        section.modal-button-section
+            button.modal-item.modal-button.submit(type='submit') Login
+
+mixin card(podcast)
+    -var text = podcast.toUpperCase().replace('-', ' ')
+    .card-wrap
+        .card
+          //- Borked right now
+          img.card-image(src='/images/hidden-brain.png')
+
+doctype
+html
+    head
+        title Podcatch
+        meta(name='viewport' content='initial-scale=1')
+        link(href='https://fonts.googleapis.com/css?family=Roboto:100,400,700|Material+Icons' rel='stylesheet' type='text/css')
+        link(href='/styles/main.css' type='text/css' rel='stylesheet')
+    body
+        #wrap
+            .overlay(v-bind:class='{visible: showModal}')
+                +modal
+            +sidebar
+            article#article(v-bind:class='{nudge: showSidebar}')
+                header#header
+                    section.header-section#brand
+                        button.header-item.header-icon.brand-item.brand-icon#menu-button
+                            i#menu-icon.material-icons(v-on:click='showSidebar = true' v-if='!showSidebar') menu
+                            i#menu-icon.material-icons(v-on:click='showSidebar = false' v-else) close
+                        h1.header-item.header-text.brand-item.brand-text#title Podcatch
+                    button.header-section#meta(v-on:click='showModal = true')
+                        span.header-item.header-text.meta-item.meta-text Login
+                        i.header-item.header-icon.meta-item.meta-icon.material-icons person
+                section#content-wrap
+                    #banner.banner.image
+                    #content
+                        section.content-section.box
+                            h2 Lorem Ip-sama's Manifesto
+                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        section.content-section#cards
+                            +card('science-vs')
+                            +card('startup')
+                            +card('surprisingly-awesome')
+                            +card('reply-all')
+                            //- +card('wait-wait-dont-tell-me')
+                            //- +card('this-american-life')
+                            //- +card('ted-radio-hour')
+                            //- +card('car-talk')
+                            //- +card('fresh-air')
+                            //- +card('hidden-brain')
+                            +card('heavyweight')
+                footer#footer
+                    span#footer-text &copy;2016 Podcatch.
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js')
+        script(src='/scripts/bundle.js')

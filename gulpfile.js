@@ -1,17 +1,19 @@
 const gulp         = require('gulp')
+const shell        = require('gulp-shell')
 const jade         = require('gulp-jade')
 const sass         = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin     = require('gulp-imagemin')
 const imageResize  = require('gulp-image-resize')
 const cache        = require('gulp-cache')
-const browserify   = require('gulp-browserify')
+const browserify   = require('browserify')
+const source       = require('vinyl-source-stream')
 const browserSync  = require('browser-sync').create()
 const ngrok        = require('ngrok')
 const runSequence  = require('run-sequence')
 const del          = require('del')
 const config = {
-          port:   8080,
+          port: 8080,
           root:   '.',
           start:  'src',
           finish: 'docs'
@@ -36,39 +38,41 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   return gulp.src(start+'/scripts/main.js')
-             .pipe(browserify())
              .pipe(gulp.dest(finish+'/scripts'))
              .pipe(browserSync.reload({stream: true}))
 })
 
 gulp.task('images', function(){
     return gulp.src(start+'/images/**/*.+(png|jpg|gif|svg)')
-              //  .pipe(imageResize())
                .pipe(cache(imagemin()))
                .pipe(gulp.dest(finish+'/images'))
 })
 
-gulp.task('clean', function() {
-  return del(finish+'/**/*', {force: true})
+gulp.task('server', function() {
+  return gulp.src(start+'/scripts/server.js')
+             .pipe(shell([
+               'node src/scripts/server.js'
+             ]))
 })
 
-gulp.task('build', ['clean'], function() {
-  runSequence(['images', 'styles', 'scripts', 'pages'])
+// gulp.task('clean', function() {
+//   return del(finish+'/**/*', {force: true})
+// })
+
+gulp.task('build', function() {
+  runSequence(['images', 'styles', 'scripts', 'pages', 'server'])
 })
 
 gulp.task('watch', ['build'], function() {
   gulp.watch(start+'/pages/**/*.jade', ['pages', 'images'])
   gulp.watch(start+'/styles/**/*.scss', ['styles'])
-  gulp.watch(start+'/scripts/**/*.js', ['scripts'])
+  gulp.watch(start+'/scripts/**/*.js', ['scripts', 'server'])
 })
 
 gulp.task('serve', function() {
   browserSync.init({
-    port: config.port,
-    notify: false,
-    server: {
-      baseDir: config.root
-    }
+    //proxy: 'localhost:8080'
+    port: 8081
   })
 })
 
