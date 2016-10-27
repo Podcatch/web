@@ -20,7 +20,7 @@ mixin modal
             span.modal-title Podcatch
         section.modal-input-section
             //- This form is where we handle routing with vue-router
-            form(action='/login' name='login' method='post')
+            form(action='/login' id='form' name='login' method='post')
             .modal-input-wrap
                 input.modal-item.modal-input.username(name='username' placeholder='Username')
                 i.modal-icon.material-icons person
@@ -32,7 +32,7 @@ mixin modal
                 .modal-input-tab
                 .modal-input-border
         section.modal-button-section
-            button.modal-item.modal-button.submit(type='submit') Login
+            button.modal-item.modal-button.submit(id='btnSubmit' type='submit' onClick='submitData()') Login
 
 mixin card(podcast)
     -var text = podcast.toUpperCase().replace('-', ' ')
@@ -85,3 +85,4 @@ html
                     span#footer-text &copy;2016 Podcatch.
         script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js')
         script(src='/scripts/bundle.js')
+        script(src='/scripts/submit.js')

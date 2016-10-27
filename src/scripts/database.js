@@ -5,7 +5,7 @@ PouchDB.plugin(require('pouchdb-authentication'))
 // Hashing
 let bcrypt = require('bcryptjs')
 
-console.log('Bush Did 9/11')
+console.log('database.js was loaded successfully')
 
 // Initialize local and remote database
 let users = new PouchDB('http://localhost:5984/users', {
@@ -22,12 +22,8 @@ let username,
     email
 
 // Registration
-function registration(username, password, email) {
-    users.signup(username, password, {
-        metadata: {
-            email: email
-        }
-    }, function(err, response) {
+function registration(username, password) {
+    users.signup(username, password, function(err, response) {
         // Hash and salt password
         let salt = bcrypt.genSaltSync(10),
             hash = bcrypt.hashSync(password, salt)
@@ -36,11 +32,10 @@ function registration(username, password, email) {
         // Add user to the database
         users.put({
             _id: username,
-            emailAddress: email,
             pass: hash
         })
 
-        console.log(username, hash, email)
+        console.log(username, hash)
     })
 }
 
@@ -55,6 +50,11 @@ function login(username, password) {
         console.log(bcrypt.compareSync(password, doc.pass))
     })
 }
+
+exports.registration = registration
+exports.login = login
+
+//registration('ThisIsATestAccountBoi', 'TestPassword', 'gmailsucks@gmail.com')
 
 // Sync both database changes from PouchDB to Cloudant and vice versa
 users.replicate.to(remote, opts);

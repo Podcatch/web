@@ -55,18 +55,25 @@ gulp.task('server', function() {
              ]))
 })
 
+gulp.task('database', function() {
+  return gulp.src(start+'/scripts/database.js')
+             .pipe(shell([
+               'node src/scripts/database.js'
+             ]))
+})
+
 // gulp.task('clean', function() {
 //   return del(finish+'/**/*', {force: true})
 // })
 
 gulp.task('build', function() {
-  runSequence(['images', 'styles', 'scripts', 'pages', 'server'])
+  runSequence(['images', 'styles', 'scripts', 'pages', 'server', 'database'])
 })
 
 gulp.task('watch', ['build'], function() {
   gulp.watch(start+'/pages/**/*.jade', ['pages', 'images'])
   gulp.watch(start+'/styles/**/*.scss', ['styles'])
-  gulp.watch(start+'/scripts/**/*.js', ['scripts', 'server'])
+  gulp.watch(start+'/scripts/**/*.js', ['scripts', 'server', 'database'])
 })
 
 gulp.task('serve', function() {

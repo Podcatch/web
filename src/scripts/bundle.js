@@ -7526,6 +7526,4 @@ new Vue({
     }
 })
 
-console.log('Hello, World!')
-
 },{"vue/dist/vue.js":1}]},{},[2]);
