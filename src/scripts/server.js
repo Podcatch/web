@@ -1,14 +1,29 @@
-// Script intialized by Gulp
 const path = require('path')
 const bodyParser = require('body-parser')
+
+// Create users database in CouchDB on initialization
+const PouchDB = require('pouchdb')
+      PouchDB.plugin(require('pouchdb-authentication'))
+// Start application
 const express = require('express')
 const app = express()
 
-// Import registration and login functionality from database.js
-const database = require('./database')
+// Hashing
+let bcrypt = require('bcryptjs')
+
+// Initialize local and remote database
+let users = new PouchDB('http://localhost:5984/users', {
+        skipSetup: true
+    }),
+    remote = "https://podcatch:billnyethescienceguy@podcatch.cloudant.com/users",
+    opts = {
+        continuous: true
+    }
 
 // Configuration
-let urlencodedParser = bodyParser.urlencoded({ extended: false })
+let urlencodedParser = bodyParser.urlencoded({
+    extended: false
+})
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
@@ -22,18 +37,34 @@ console.log('Listening on port: ' + app.get('port'))
 // Routing
 app.get('/', function(req, res) {
     console.log('Welcome!')
-    res.render('index');
+    res.render('index')
 })
 
-app.get('/login', function(req, res) {
-    console.log('Uhh, it looks like something went wrong here')
-    res.end()
-})
-
-// Link with database.js to link username and password attributes
 app.post('/login', urlencodedParser, function(req, res) {
-    console.log(req.body)
-    //database.login('ThisIsATestAccountBoi', 'TestPassword')
-    //console.log('Username: ' + username + '\n' + 'Password: ' + password)
+    username = req.body.username,
+    password = req.body.password
+    console.log(username)
     res.end()
 })
+
+// Registration
+function registration(username, password) {
+    // Hash and salt password
+    let salt = bcrypt.genSaltSync(10),
+        hash = bcrypt.hashSync(password, salt)
+    console.log("The hashed password is: " + hash)
+
+    // Add user to the database
+    users.put({
+        _id: username,
+        pass: hash
+    })
+    console.log(username, hash)
+}
+
+//registration('Bradzilla', 'MegamanDorkBoi')
+// console.log(bcrypt.compareSync(password, doc.pass))
+
+// Sync both database changes from PouchDB to Cloudant and vice versa
+users.replicate.to(remote, opts)
+users.replicate.from(remote, opts)
