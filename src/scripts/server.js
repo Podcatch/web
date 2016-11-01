@@ -1,21 +1,19 @@
 const path = require('path')
 const bodyParser = require('body-parser')
 
-// Create users database in CouchDB on initialization
+// Create _users database in CouchDB on initialization
 const PouchDB = require('pouchdb')
       PouchDB.plugin(require('pouchdb-authentication'))
+
 // Start application
 const express = require('express')
 const app = express()
 
-// Hashing
-let bcrypt = require('bcryptjs')
-
 // Initialize local and remote database
-let users = new PouchDB('http://localhost:5984/users', {
+let _users = new PouchDB('http://localhost:5984/_users/', {
         skipSetup: true
     }),
-    remote = "https://podcatch:billnyethescienceguy@podcatch.cloudant.com/users",
+    remote = "https://podcatch:billnyethescienceguy@podcatch.cloudant.com/_users",
     opts = {
         continuous: true
     }
@@ -41,30 +39,43 @@ app.get('/', function(req, res) {
 })
 
 app.post('/login', urlencodedParser, function(req, res) {
-    username = req.body.username,
-    password = req.body.password
-    console.log(username)
+   username = req.body.username,
+   password = req.body.password
+
+   _users.login(username, password, function (err, response) {
+     if (err) {
+       console.log(err)
+       if (err.name === 'unauthorized') {
+         // name or password incorrect
+         console.log('Incorrect username or password')
+       } else {
+         // cosmic rays, a meteor, etc.
+         console.log('Hurry up and fix this')
+       }
+     }
+   })
+
     res.end()
 })
 
 // Registration
 function registration(username, password) {
-    // Hash and salt password
-    let salt = bcrypt.genSaltSync(10),
-        hash = bcrypt.hashSync(password, salt)
-    console.log("The hashed password is: " + hash)
-
-    // Add user to the database
-    users.put({
-        _id: username,
-        pass: hash
-    })
-    console.log(username, hash)
+  _users.signup(username, password, function (err, response) {
+    if (err) {
+      if (err.name === 'conflict') {
+        console.log('Username already exists boi')
+      } else if (err.name === 'forbidden') {
+        // invalid username
+        console.log('Please do not make that your username')
+      } else {
+        console.log('Your computer has been struck by a meteor')
+      }
+    }
+  })
 }
 
-//registration('Bradzilla', 'MegamanDorkBoi')
-// console.log(bcrypt.compareSync(password, doc.pass))
+//registration('Bradzilla', 'Megaman')
 
 // Sync both database changes from PouchDB to Cloudant and vice versa
-users.replicate.to(remote, opts)
-users.replicate.from(remote, opts)
+_users.replicate.to(remote, opts)
+_users.replicate.from(remote, opts)
