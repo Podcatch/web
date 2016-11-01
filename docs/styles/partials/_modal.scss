@@ -1,0 +1,130 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: rgba(black, .75);
+  z-index: 2;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s;
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+    .modal {
+      top: 0;
+    }
+  }
+}
+
+.modal {
+  top: 32px;
+  position: relative;
+  background: $color-dark;
+  color: lighten($color-dark, 25%);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: 4px;
+  box-shadow: $shadow;
+  transition: .75s;
+  section {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  button {
+    margin: 0;
+  }
+}
+
+.modal-close {
+  display: flex;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  position: absolute;
+  padding: 4px;
+  top: -8px;
+  right: -8px;
+}
+
+.modal-title {
+  font-weight: 100;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.modal-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-flow: wrap;
+  flex-direction: row-reverse;
+}
+
+.modal-icon {
+  padding: 0 8px;
+  border-right: 2px solid lighten($color-dark, 25%);
+  transition: .25s;
+}
+
+.modal-input {
+  background: transparent;
+  font-family: $font-sans-serif;
+  font-size: 1rem;
+  padding: 0 12px;
+  height: 36px;
+  border: none;
+  color: white;
+  transition: .25s;
+  &::-webkit-input-placeholder {
+    color: lighten($color-dark, 25%);
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: lighten($color-dark, 25%);
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: lighten($color-dark, 25%);
+  }
+  &:-ms-input-placeholder {
+    color: lighten($color-dark, 25%);
+  }
+  &:focus {
+    outline: 0;
+    ~ .modal-icon {
+      color: white;
+    }
+    ~ .modal-input-tab {
+      border-bottom-color: white;
+    }
+    ~ .modal-input-border {
+      border-bottom-color: white;
+    }
+  }
+}
+
+.modal-input-tab {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-bottom: .75rem solid lighten($color-dark, 25%);
+  border-left: .75rem solid transparent;
+  transition: .25s;
+}
+
+.modal-input-border {
+  width: 100%;
+  border-bottom: 2px solid lighten($color-dark, 25%);
+  transition: .25s;
+}
+
+.modal-button {
+  padding: 12px;
+  border-radius: 24px;
+}
