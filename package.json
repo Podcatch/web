@@ -32,7 +32,9 @@
   },
   "homepage": "https://github.com/Podcatch/podcatch.github.io#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "passport": "^0.3.2",
     "pug": "^2.0.0-beta6",
     "request": "^2.75.0",
     "vue": "^2.0.3",
