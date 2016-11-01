@@ -24,7 +24,7 @@
     "scripts": {
         "start": "node scripts/src/server.js",
         "postinstall": "gulp default"
-    }
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Podcatch/podcatch.github.io.git"
