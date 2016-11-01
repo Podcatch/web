@@ -22,8 +22,8 @@ let _users = new PouchDB('http://localhost:5984/_users/', {
 let urlencodedParser = bodyParser.urlencoded({
     extended: false
 })
-app.use(express.static(path.join(__dirname, '../../docs')))
-app.use(express.static(path.join(__dirname, '../../src')))
+app.use(express.static('docs'))
+app.use(express.static(('src'))
 
 app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'pug')
