@@ -19,8 +19,7 @@ mixin modal
         section.modal-title-section
             span.modal-title Podcatch
         section.modal-input-section
-            //- This form is where we handle routing with vue-router
-        form(method='post' action='/login' id='form' name='loginForm')
+          form(method='post' action='/login' id='form' name='loginForm')
             .modal-input-wrap
                 input.modal-item.modal-input.username(for ='loginForm' id='userVal' name='username' placeholder='Username')
                 i.modal-icon.material-icons person
@@ -85,3 +84,4 @@ html
                     span#footer-text &copy;2016 Podcatch.
         script(src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js')
         script(src='/scripts/bundle.js')
+        script(src='/scripts/login.js')

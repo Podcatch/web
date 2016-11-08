@@ -1,27 +1,37 @@
-const path = require('path')
-const bodyParser = require('body-parser')
-
-// Create _users database in CouchDB on initialization
-const PouchDB = require('pouchdb')
-      PouchDB.plugin(require('pouchdb-authentication'))
-
-// Start application
+// Initialize
 const express = require('express')
 const app = express()
 
-// Initialize local and remote database
-let _users = new PouchDB('http://localhost:5984/_users/', {
-        skipSetup: true
-    }),
-    remote = "https://podcatch:billnyethescienceguy@podcatch.cloudant.com/_users",
-    opts = {
-        continuous: true
+const bodyParser = require('body-parser')
+const path = require('path')
+const bcrypt = require('bcryptjs')
+
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.findOne({
+            username: username
+        }, function(err, user) {
+            if (err) {
+                return done(err)
+            }
+            if (!user) {
+                return done(null, false, {
+                    message: 'Incorrect username.'
+                })
+            }
+            return done(null, user)
+        });
     }
+));
 
 // Configuration
 let urlencodedParser = bodyParser.urlencoded({
     extended: false
 })
+
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
@@ -32,50 +42,61 @@ app.set('views', 'src/pages')
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
 
+// Initialize database (local or remote?)
+const MongoClient = require('mongodb').MongoClient,
+    mongoose = require('mongoose'),
+    assert = require('assert')
+
+mongoose.Promise = global.Promise;
+const database = 'mongodb://localhost:27017/database'
+mongoose.connect(database)
+
+let db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error'))
+
+db.once('open', function() {
+    let UserSchema = mongoose.Schema({
+        username: String,
+        password: String
+    })
+
+    let UserModel = mongoose.model('UserModel', UserSchema)
+
+    // Registration
+    app.post('/signup', urlencodedParser, function(req, res) {
+        let username = req.body.username,
+            password = req.body.password,
+            salt = bcrypt.genSaltSync(10),
+            hash = bcrypt.hashSync(password, salt)
+
+        let user = new UserModel({
+            username: username,
+            password: hash
+        })
+
+        console.log(user.username)
+        console.log(user.password)
+
+        user.save(function(err) {
+            if (err) {
+                return console.log(err, user)
+            } else {
+                console.log('User has been saved to the database successfully')
+            }
+        })
+
+        res.end()
+    })
+
+    // Login
+    app.post('/login', passport.authenticate('local', { successRedirect: '/success',
+            failureRedirect: '/fail' }), function(req, res) {
+            res.end()
+    })
+})
+
 // Routing
 app.get('/', function(req, res) {
     console.log('Welcome!')
     res.render('index')
 })
-
-app.post('/login', urlencodedParser, function(req, res) {
-   username = req.body.username,
-   password = req.body.password
-
-   _users.login(username, password, function (err, response) {
-     if (err) {
-       console.log(err)
-       if (err.name === 'unauthorized') {
-         // name or password incorrect
-         console.log('Incorrect username or password')
-       } else {
-         // cosmic rays, a meteor, etc.
-         console.log('Hurry up and fix this')
-       }
-     }
-   })
-
-    res.end()
-})
-
-// Registration
-function registration(username, password) {
-  _users.signup(username, password, function (err, response) {
-    if (err) {
-      if (err.name === 'conflict') {
-        console.log('Username already exists boi')
-      } else if (err.name === 'forbidden') {
-        // invalid username
-        console.log('Please do not make that your username')
-      } else {
-        console.log('Your computer has been struck by a meteor')
-      }
-    }
-  })
-}
-
-//registration('Bradzilla', 'Megaman')
-
-// Sync both database changes from PouchDB to Cloudant and vice versa
-_users.replicate.to(remote, opts)
-_users.replicate.from(remote, opts)
