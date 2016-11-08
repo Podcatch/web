@@ -44,10 +44,9 @@ console.log('Listening on port: ' + app.get('port'))
 
 // Initialize database (local or remote?)
 const MongoClient = require('mongodb').MongoClient,
-    mongoose = require('mongoose'),
-    assert = require('assert')
+      mongoose = require('mongoose'),
+      assert = require('assert')
 
-mongoose.Promise = global.Promise;
 const database = 'mongodb://localhost:27017/database'
 mongoose.connect(database)
 
@@ -55,48 +54,45 @@ let db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error'))
 
 db.once('open', function() {
-    let UserSchema = mongoose.Schema({
-        username: String,
-        password: String
-    })
-
-    let UserModel = mongoose.model('UserModel', UserSchema)
-
-    // Registration
-    app.post('/signup', urlencodedParser, function(req, res) {
-        let username = req.body.username,
-            password = req.body.password,
-            salt = bcrypt.genSaltSync(10),
-            hash = bcrypt.hashSync(password, salt)
-
-        let user = new UserModel({
-            username: username,
-            password: hash
-        })
-
-        console.log(user.username)
-        console.log(user.password)
-
-        user.save(function(err) {
-            if (err) {
-                return console.log(err, user)
-            } else {
-                console.log('User has been saved to the database successfully')
-            }
-        })
-
-        res.end()
-    })
-
-    // Login
-    app.post('/login', passport.authenticate('local', { successRedirect: '/success',
-            failureRedirect: '/fail' }), function(req, res) {
-            res.end()
-    })
+  let userData = require('./models/user.js')
+  let testUser = new userData.UserModel({ username: 'Hillary better win', password: 'HarambeWasAnInsideJob' })
+  console.log(testUser.username)
 })
 
 // Routing
 app.get('/', function(req, res) {
     console.log('Welcome!')
     res.render('index')
+})
+
+// Registration
+app.post('/signup', urlencodedParser, function(req, res) {
+    let username = req.body.username,
+        password = req.body.password,
+        salt = bcrypt.genSaltSync(10),
+        hash = bcrypt.hashSync(password, salt)
+
+    let user = new UserModel({
+        username: username,
+        password: hash
+    })
+
+    console.log(user.username)
+    console.log(user.password)
+
+    user.save(function(err) {
+        if (err) {
+            return console.log(err, user)
+        } else {
+            console.log('User has been saved to the database successfully')
+        }
+    })
+
+    res.end()
+})
+
+// Login
+app.post('/login', passport.authenticate('local', { successRedirect: '/success',
+        failureRedirect: '/fail' }), function(req, res) {
+        res.end()
 })
