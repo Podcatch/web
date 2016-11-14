@@ -1,3 +1,4 @@
+![Podcatch Logo](http://imgur.com/gLucT9q)
 # podcatch.github.io
 > Client for Podcatch.
 
