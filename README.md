@@ -1,4 +1,4 @@
-![Podcatch Logo](http://imgur.com/gLucT9q)
+![Podcatch Logo](assets/Podcatch/V2/RianWardaya-Podcatch-V2.png)
 # podcatch.github.io
 > Client for Podcatch.
 

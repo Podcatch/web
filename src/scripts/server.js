@@ -1,43 +1,26 @@
 // Initialize
-const express = require('express')
-const app = express()
-
 const bodyParser = require('body-parser')
 const path = require('path')
 const bcrypt = require('bcryptjs')
-
-var passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy
-
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.findOne({
-            username: username
-        }, function(err, user) {
-            if (err) {
-                return done(err)
-            }
-            if (!user) {
-                return done(null, false, {
-                    message: 'Incorrect username.'
-                })
-            }
-            return done(null, user)
-        });
-    }
-));
+const express = require('express')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const passport = require('passport')
+const app = express()
 
 // Configuration
-let urlencodedParser = bodyParser.urlencoded({
-    extended: false
-})
-
+app.use(cookieParser())
+app.use(session({ secret: 'ThisIsTheSessionSecret' }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
 app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'pug')
 app.set('views', 'src/pages')
+
+let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
@@ -87,12 +70,11 @@ app.post('/signup', urlencodedParser, function(req, res) {
             console.log('User has been saved to the database successfully')
         }
     })
-
     res.end()
 })
 
 // Login
-app.post('/login', passport.authenticate('local', { successRedirect: '/success',
-        failureRedirect: '/fail' }), function(req, res) {
-        res.end()
-})
+// app.post('/login', passport.authenticate('local', { successRedirect: '/success',
+//         failureRedirect: '/' }), function(req, res) {
+//         res.end()
+// })
