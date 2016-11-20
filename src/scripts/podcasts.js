@@ -5,8 +5,9 @@ const firebase = require('firebase'),
     csv = require('csv')
 
 // Grab feed data from iTunes API then convert it to a CSV (every few hours)
-let baseURL = "https://itunes.apple.com/search?media=podcast&"
-let topTen = "https://itunes.apple.com/us/rss/toppodcasts/limit=10/json"
+let baseURL = 'https://itunes.apple.com/search?media=podcast&'
+let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json'
+
 // Search for a Podcast
 function searchFor(searchterm) {
     // Check if a space is found and if it is, replace it with a +
@@ -17,59 +18,27 @@ function searchFor(searchterm) {
     // Query database
 }
 
-// Parse CSV
+// Grab feed URL from iTunes and then work with the metadata/article props
+function getFeed(feedURL) {
+    let title, description, link, date, pubdate, author, language, image, categories
+    let req = request(feedURL),
+        feedParser = new FeedParser()
+    
+    req.on('error', function(error) { console.log(error) })
+    req.on('response', function(res) {
+        let stream = this
+        if(res.statusCode != 200) { return this.emit('error', new Error('Bad status code'))}
+        stream.pipe(feedParser)   
+    })
 
-// Grab feed URLs from CSV and then work with the metadata/article props
-function getFeed() {
-    podcasts.allDocs({
-        include_docs: true,
-        attachments: true
-    }, function(err, response) {
-        if (err) {
-            return console.log(err);
-        }
-        // Output Podcast name and feed URLs
-        response.rows.forEach(function(element, i, array) {
-            let podcastName = response.rows[i].doc._id
-                let feed = response.rows[i].doc.feedURL
-                    console.log(podcastName + ': ' + feed)
+    feedParser.on('error', function(error) { console.log(error) })
+    feedParser.on('readable', function() {
+        let stream = this, 
+            meta = this.meta, 
+            item
+        while (item = stream.read()) { console.log("Title: " + item.title + " Author: " + item.author) }
+    })
+}
 
-                    // Parse data feed
-                    let req = request(feed),
-                        feedparser = new FeedParser()
-
-                    req.on('error', function() {
-                        console.log('There has been an error with your request, please try again')
-                    })
-
-                    req.on('response', function(res) {
-                        let stream = this
-                        if (res.statusCode != 200)
-                            return this.emit('error', new Error('Bad status code!'))
-                        stream.pipe(feedparser)
-                    })
-
-                    feedparser.on('error', function() {
-                        console.log('There has been an error accessing the feed')
-                    })
-
-                    feedparser.on('readable', function() {
-                        let stream = this,
-                            meta = this.meta,
-                            item
-
-                        while (item = stream.read()) {
-                            console.log(item.title)
-                            console.log(item.author)
-                            console.log(item.enclosures[0].url)
-                        }
-                    })
-                })
-            })
-        }
-
-        getFeed()
-
-        // Sync both database changes from PouchDB to Cloudant and vice versa
-        podcasts.replicate.to(remote, opts);
-        podcasts.replicate.from(remote, opts);
+// Call getFeed for each feed encountered
+getFeed('http://feeds.gimletmedia.com/hearstartup')
