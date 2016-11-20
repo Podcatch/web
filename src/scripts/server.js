@@ -1,9 +1,8 @@
 // Initialize
 const firebase = require('firebase')
+const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
-const express = require('express')
-
 const app = express()
 
 // Configuration
@@ -14,9 +13,11 @@ const config = {
   storageBucket: "podcatch-4ec51.appspot.com",
   messagingSenderId: "890718527886"
 }
-let podcatch = firebase.initializeApp(config)
 
-let podcatchDatabase = podcatch.database()
+let podcatch = firebase.initializeApp(config),
+    podcatchDatabase = podcatch.database()
+
+let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
@@ -24,8 +25,6 @@ app.use(express.static(path.join(__dirname, '../../src')))
 app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'pug')
 app.set('views', 'src/pages')
-
-let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
