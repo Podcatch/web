@@ -5,6 +5,10 @@ let UserSchema = mongoose.Schema({
     password: String
 })
 
+UserSchema.methods.validPassword = function(pwd) {
+  return bcrypt.compareSync(pwd, this.password)
+}
+
 let UserModel = mongoose.model('UserModel', UserSchema)
 
 module.exports.UserSchema = UserSchema
