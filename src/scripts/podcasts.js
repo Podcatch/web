@@ -28,7 +28,7 @@ function getFeed(feedURL) {
     req.on('response', function(res) {
         let stream = this
         if(res.statusCode != 200) { return this.emit('error', new Error('Bad status code'))}
-        stream.pipe(feedParser)   
+        stream.pipe(feedParser)
     })
 
     feedParser.on('error', function(error) { console.log(error) })
@@ -36,7 +36,7 @@ function getFeed(feedURL) {
         let stream = this, 
             meta = this.meta, 
             item
-        while (item = stream.read()) { console.log("Title: " + item.title + " Author: " + item.author) }
+        while (item = stream.read()) { console.log("Title: " + item.title + "\n" + "Author: " + item.author) }
     })
 }
 
