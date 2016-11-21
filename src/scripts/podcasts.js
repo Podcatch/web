@@ -16,6 +16,7 @@ function searchFor(searchterm) {
     console.log('Your new search term is: ' + newSearchURL)
 
     // Query database
+    
 }
 
 // Grab feed URL from iTunes and then work with the metadata/article props
