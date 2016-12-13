@@ -1,5 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // Import other components here
+import Sidebar from '../components/Sidebar/Sidebar.js'
 
-ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('wrap'))
+class App extends React.Component {
+    render() {
+        return(
+            <div>
+                <Sidebar/>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('app'))
