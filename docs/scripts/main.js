@@ -1,9 +1,5 @@
-const Vue = require('vue/dist/vue.js')
+import React from 'react'
+import ReactDOM from 'react-dom'
+// Import other components here
 
-new Vue({
-    el: '#wrap',
-    data: {
-        showSidebar: false,
-        showModal: false
-    }
-})
+ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('wrap'))
