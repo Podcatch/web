@@ -1,8 +1,7 @@
 // Grab RSS feeds
 const firebase = require('firebase'),
     FeedParser = require('feedparser'),
-    request = require('request'),
-    csv = require('csv')
+    request = require('request')
 
 // Grab feed data from iTunes API then convert it to a CSV (every few hours)
 let baseURL = 'https://itunes.apple.com/search?media=podcast&'

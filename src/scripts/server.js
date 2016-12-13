@@ -22,16 +22,17 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
-app.set('port', process.env.PORT || 8080);
-app.set('view engine', 'pug')
-app.set('views', 'src/pages')
+app.set('port', process.env.PORT || 8080)
+// app.set('views', 'src/pages')
+// app.set('view engine', 'html')
 
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
 
 // Routing
 app.get('/', function(req, res) {
-    res.render('index')
+    //res.render('index.html')
+    res.sendFile(path.join(__dirname + '/../pages/index.html'))
 })
 
 // Registration
