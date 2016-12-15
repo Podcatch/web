@@ -1,13 +1,12 @@
 import React from 'react'
 
-class Header extends React.Component {
+class Header extends React.Component {  
     render() {
         return (
-            <div>
                 <div id="header">
+                    <i className="material-icons" id="menu-icon">menu</i>
                     <div id="title">Podcatch</div>
                 </div>
-            </div>
         )
     }
 }
