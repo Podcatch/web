@@ -42,3 +42,5 @@ function getFeed(feedURL) {
 
 // Call getFeed for each feed encountered
 getFeed('http://feeds.gimletmedia.com/hearstartup')
+
+// Apply for Enterprise Partner Feed to not get rate-limited: https://affiliate.itunes.apple.com/resources/documentation/itunes-enterprise-partner-feed/
