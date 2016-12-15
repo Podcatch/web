@@ -1,10 +1,10 @@
 import React from 'react'
 
-class Card extends React.Component {
+class Button extends React.Component {
     render() {
         return (
             <div>
-                
+                <button>Login</button>
             </div>
         )
     }

@@ -4,7 +4,7 @@ class Sidebar extends React.Component {
     render() {
         return (
             <div>
-                <h1>Sup, fam</h1>
+                <aside id="sidebar"></aside>
             </div>
         )
     }
