@@ -51,6 +51,9 @@ app.post('/login', urlencodedParser, function(req, res) {
   })
 })
 
+// Social login
+//let provider = new firebase.auth.TwitterAuthProvider();
+
 // Log out
 app.post('/logout', function(req, res) {
   firebase.auth().signOut().then(function() {
