@@ -14,7 +14,7 @@ function searchFor(searchterm) {
     let newSearchURL = baseURL + "term=" + searchterm.split(' ').join('+').toLowerCase()
     console.log('Your new search term is: ' + newSearchURL)
 
-    // Query database
+    // Query iTunes API and display results in React
     
 }
 
