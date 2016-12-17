@@ -8,4 +8,4 @@
 6. Add play bar component
 7. Figure out how downloading episodes for on-the-go will work
 8. Add support for video casts (e.g. TED Talks Videocast)
-9. Plan opt-in push notifications for new shows (Elixir anyone?)
+9. Plan opt-in push notifications for new uploads/subscription uploads (Elixir anyone?)
