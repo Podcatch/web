@@ -21612,14 +21612,6 @@
 
 	var axios = __webpack_require__(180);
 
-	function loginRequest() {
-	    axios.post('/login').then(function (response) {
-	        console.log(response);
-	    }).catch(function (error) {
-	        console.log(error);
-	    });
-	}
-
 	var Login = function (_React$Component) {
 	    _inherits(Login, _React$Component);
 
@@ -21630,6 +21622,15 @@
 	    }
 
 	    _createClass(Login, [{
+	        key: 'loginRequest',
+	        value: function loginRequest() {
+	            axios.post('/login').then(function (response) {
+	                console.log(response);
+	            }).catch(function (error) {
+	                console.log(error);
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -21637,7 +21638,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    'button',
-	                    { onClick: loginRequest },
+	                    { onClick: this.loginRequest },
 	                    'Login'
 	                )
 	            );
@@ -23164,14 +23165,6 @@
 
 	var axios = __webpack_require__(180);
 
-	function signupRequest() {
-	    axios.post('/signup').then(function (response) {
-	        console.log(response);
-	    }).catch(function (error) {
-	        console.log(error);
-	    });
-	}
-
 	var Signup = function (_React$Component) {
 	    _inherits(Signup, _React$Component);
 
@@ -23182,6 +23175,15 @@
 	    }
 
 	    _createClass(Signup, [{
+	        key: 'signupRequest',
+	        value: function signupRequest() {
+	            axios.post('/signup').then(function (response) {
+	                console.log(response);
+	            }).catch(function (error) {
+	                console.log(error);
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -23189,7 +23191,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    'button',
-	                    { onClick: signupRequest },
+	                    { onClick: this.signupRequest },
 	                    'Signup'
 	                )
 	            );
