@@ -1,5 +1,6 @@
 import React from 'react'
-import Button from '../Button/Button.js'
+import Login from '../Button/Login.js'
+import Signup from '../Button/Signup.js'
 
 class Header extends React.Component {  
     render() {
@@ -7,7 +8,8 @@ class Header extends React.Component {
                 <div id="header">
                     <i className="material-icons" id="menu-icon">menu</i>
                     <i className="material-icons">person</i>
-                    <Button/>
+                    <Login/>
+                    <Signup/>
                     <div id="title">Podcatch</div>
                 </div>
         )
