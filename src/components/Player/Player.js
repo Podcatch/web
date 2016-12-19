@@ -1,9 +1,14 @@
 import React from 'react'
 
 class Player extends React.Component {
-    play(url) {}
+    play(url) {
+        this.currentShow = new Audio(url)
+        this.currentShow.play()
+    }
 
-    pause() {}
+    pause() {
+        this.currentShow.pause()
+    }
 
     render() {
         return (
