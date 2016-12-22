@@ -4,10 +4,12 @@ import AppBar from 'material-ui/AppBar';
 class Header extends React.Component {  
     render() {
         return (
-            <AppBar 
-                title="Podcatch"
-                iconClassNameRight="muidocs-icon-navigation-expand-more"
-            />
+            <div id="header">
+                <div id="menu-icon">
+                    <i className="material-icons meta clickable">menu</i>
+                </div>
+                <div id="title">Podcatch</div>
+            </div>
         )
     }
 }
