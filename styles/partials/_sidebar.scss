@@ -1,0 +1,44 @@
+#sidebar {
+  position: absolute;
+  min-width: $sidebar-width;
+  background: $color-dark;
+  color: white;
+}
+
+#nav-header {
+  display: flex;
+  align-items: center;
+  margin: 4px;
+}
+
+.nav-header-item {
+  padding: 2px;
+  color: white;
+}
+
+#nav-icon {
+  font-size: 1rem;
+}
+
+#nav-title {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nav-entry {
+  border-top: thin solid lighten($color-dark, 10%);
+}
+
+.nav-link {
+  padding: 0 16px;
+  display: block;
+  line-height: 40px;
+  font-weight: 100;
+  transition: .25s;
+  &:hover {
+    cursor: pointer;
+    background: lighten($color-dark, 10%);
+  }
+}
