@@ -1,15 +1,33 @@
 import React from 'react'
 
 class Sidebar extends React.Component {
-
     render() {
         return (
-            <div id="sidebar"></div>
+            <aside id="sidebar">
+                <nav id="nav">
+                    <header id="nav-header">
+                        <i id="nav-icon" className="nav-header-item material-icons">menu</i>
+                        <h3 id="nav-title" className="nav-header-item">Menu</h3>
+                    </header>
+                    <ul id="nav-list">
+                        <li className="nav-entry">
+                            <a href="#" className="nav-link">Discover</a>
+                        </li>
+                        <li className="nav-entry">
+                            <a href="#" className="nav-link">New Releases</a>
+                        </li>
+                        <li className="nav-entry">
+                            <a href="#" className="nav-link">Categories</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
         )
     }
 }
 
 export default Sidebar
+
 /*
 mixin sidebar
     aside#sidebar

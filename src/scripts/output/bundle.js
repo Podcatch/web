@@ -21638,7 +21638,59 @@
 	    _createClass(Sidebar, [{
 	        key: "render",
 	        value: function render() {
-	            return _react2.default.createElement("div", { id: "sidebar" });
+	            return _react2.default.createElement(
+	                "aside",
+	                { id: "sidebar" },
+	                _react2.default.createElement(
+	                    "nav",
+	                    { id: "nav" },
+	                    _react2.default.createElement(
+	                        "header",
+	                        { id: "nav-header" },
+	                        _react2.default.createElement(
+	                            "i",
+	                            { id: "nav-icon", className: "nav-header-item material-icons" },
+	                            "menu"
+	                        ),
+	                        _react2.default.createElement(
+	                            "h3",
+	                            { id: "nav-title", className: "nav-header-item" },
+	                            "Menu"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "ul",
+	                        { id: "nav-list" },
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "nav-entry" },
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "#", className: "nav-link" },
+	                                "Discover"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "nav-entry" },
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "#", className: "nav-link" },
+	                                "New Releases"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            "li",
+	                            { className: "nav-entry" },
+	                            _react2.default.createElement(
+	                                "a",
+	                                { href: "#", className: "nav-link" },
+	                                "Categories"
+	                            )
+	                        )
+	                    )
+	                )
+	            );
 	        }
 	    }]);
 
@@ -21646,6 +21698,7 @@
 	}(_react2.default.Component);
 
 	exports.default = Sidebar;
+
 	/*
 	mixin sidebar
 	    aside#sidebar

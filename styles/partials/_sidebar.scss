@@ -41,4 +41,7 @@
     cursor: pointer;
     background: lighten($color-dark, 10%);
   }
+ &:active {
+   color: white;
+ }
 }
