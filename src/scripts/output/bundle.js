@@ -94,7 +94,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_Header2.default, null)
+	                _react2.default.createElement(_Header2.default, null),
+	                _react2.default.createElement(_Sidebar2.default, null)
 	            );
 	        }
 	    }]);
@@ -21521,7 +21522,7 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -21544,34 +21545,52 @@
 	var Header = function (_React$Component) {
 	    _inherits(Header, _React$Component);
 
-	    function Header() {
+	    // Sidebar is not shown by default
+	    function Header(props) {
 	        _classCallCheck(this, Header);
 
-	        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+	        _this.state = {
+	            sidebarVisible: false
+	        };
+	        return _this;
 	    }
 
 	    _createClass(Header, [{
-	        key: "render",
+	        key: 'showSidebar',
+	        value: function showSidebar() {
+	            this.setState({
+	                sidebarVisible: !this.state.sidebarVisible
+	            });
+	        }
+	    }, {
+	        key: 'testAlert',
+	        value: function testAlert() {
+	            alert('The menu state has been changed!');
+	        }
+	    }, {
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { id: "header" },
+	                'div',
+	                { id: 'header' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "header-section" },
+	                    'div',
+	                    { className: 'header-section' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { id: "menu-icon" },
+	                        'div',
+	                        { id: 'menu-icon', onClick: this.testAlert },
 	                        _react2.default.createElement(
-	                            "i",
-	                            { className: "material-icons clickable" },
-	                            "menu"
+	                            'i',
+	                            { className: 'material-icons clickable' },
+	                            'menu'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { id: "title" },
-	                        "Podcatch"
+	                        'div',
+	                        { id: 'title' },
+	                        'Podcatch'
 	                    )
 	                )
 	            );
@@ -21619,11 +21638,7 @@
 	    _createClass(Sidebar, [{
 	        key: "render",
 	        value: function render() {
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                _react2.default.createElement("aside", { id: "sidebar" })
-	            );
+	            return _react2.default.createElement("div", { id: "sidebar" });
 	        }
 	    }]);
 
