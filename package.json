@@ -50,6 +50,7 @@
     "passport-auth0": "^0.5.2",
     "pug": "^2.0.0-beta6",
     "react": "^15.4.1",
+    "react-burger-menu": "^1.10.10",
     "react-dom": "^15.4.1",
     "react-tap-event-plugin": "^2.0.1",
     "request": "^2.75.0",
