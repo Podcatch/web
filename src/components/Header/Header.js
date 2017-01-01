@@ -1,4 +1,5 @@
 import React from 'react'
+import Menu from '../Menu/Menu.js'
 
 class Header extends React.Component {
     // Sidebar is not shown by default
@@ -11,7 +12,7 @@ class Header extends React.Component {
 
     showSidebar() {
         this.setState({
-            sidebarVisible: !this.state.sidebarVisible
+            sidebarVisible: true
         })
     }
 
@@ -23,9 +24,8 @@ class Header extends React.Component {
         return (
             <div id="header">
             <div className="header-section">
-                <div id="menu-icon" onClick={this.testAlert}>
-                    <i className="material-icons clickable">menu</i>
-                </div>
+                <i className="material-icons clickable">menu</i>
+                <Menu/>
                 <div id="title">Podcatch</div>
             </div>
             </div>
