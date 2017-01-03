@@ -68,6 +68,10 @@
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
+	var _Player = __webpack_require__(261);
+
+	var _Player2 = _interopRequireDefault(_Player);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -95,7 +99,8 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_Header2.default, null),
-	                _react2.default.createElement(_Modal2.default, null)
+	                _react2.default.createElement(_Modal2.default, null),
+	                _react2.default.createElement(_Player2.default, null)
 	            );
 	        }
 	    }]);
@@ -35044,7 +35049,7 @@
 	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "modal-input-wrap" },
-	                            _react2.default.createElement("input", { className: "modal-item modal-input username", "for": "loginForm", id: "userVal", name: "username", placeholder: "Username" }),
+	                            _react2.default.createElement("input", { className: "modal-item modal-input username", htmlFor: "loginForm", id: "userVal", name: "username", placeholder: "Username" }),
 	                            _react2.default.createElement(
 	                                "i",
 	                                { className: "modal-icon material-icons" },
@@ -35056,7 +35061,7 @@
 	                        _react2.default.createElement(
 	                            "div",
 	                            { className: "modal-input-wrap" },
-	                            _react2.default.createElement("input", { className: "modal-item modal-input username", "for": "loginForm", id: "passVal", name: "password", placeholder: "Password", type: "password" }),
+	                            _react2.default.createElement("input", { className: "modal-item modal-input username", htmlFor: "loginForm", id: "passVal", name: "password", placeholder: "Password", type: "password" }),
 	                            _react2.default.createElement(
 	                                "i",
 	                                { className: "modal-icon material-icons" },
@@ -35103,6 +35108,483 @@
 	                button.modal-item.modal-button.submit(id='btnSubmit' type='submit') Login
 	        section.modal-button-section
 	*/
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var load = __webpack_require__(262);
+	var play = __webpack_require__(267);
+	var context = __webpack_require__(265);
+	var url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/media/anon.npr-mp3/npr/hibt/2016/12/20161221_hibt_zumba.mp3?orgId=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313";
+
+	var Player = function (_React$Component) {
+	    _inherits(Player, _React$Component);
+
+	    function Player(props) {
+	        _classCallCheck(this, Player);
+
+	        var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+
+	        _this.state = {
+	            playing: false
+	        };
+	        return _this;
+	    }
+
+	    // Starting and stopping audio
+
+
+	    _createClass(Player, [{
+	        key: 'start',
+	        value: function start(podcast) {
+	            load(podcast).then(play);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'player' },
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Playing'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'controls' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'play_pause' },
+	                        _react2.default.createElement(
+	                            'i',
+	                            { className: 'material-icons', onClick: this.start(url) },
+	                            'play_circle_outline'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { id: 'time' },
+	                        _react2.default.createElement('div', { id: 'playhead' })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Player;
+	}(_react2.default.Component);
+
+	exports.default = Player;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* global XMLHttpRequest */
+	'use strict'
+	var load = __webpack_require__(263)
+	var context = __webpack_require__(265)
+
+	module.exports = function (source, options) {
+	  var ac = options && options.context ? options.context : context
+	  var defaults = { decode: getAudioDecoder(ac), fetch: fetch }
+	  var opts = Object.assign(defaults, options)
+	  return load(source, opts)
+	}
+
+	/**
+	 * Wraps AudioContext's decodeAudio into a Promise
+	 */
+	function getAudioDecoder (ac) {
+	  return function decode (buffer) {
+	    return new Promise(function (resolve, reject) {
+	      ac.decodeAudioData(buffer,
+	        function (data) { resolve(data) },
+	        function (err) { reject(err) })
+	    })
+	  }
+	}
+
+	/*
+	 * Wraps a XMLHttpRequest into a Promise
+	 *
+	 * @param {String} url
+	 * @param {String} type - can be 'text' or 'arraybuffer'
+	 * @return {Promise}
+	 */
+	function fetch (url, type) {
+	  return new Promise(function (done, reject) {
+	    var req = new XMLHttpRequest()
+	    if (type) req.responseType = type
+
+	    req.open('GET', url)
+	    req.onload = function () {
+	      req.status === 200 ? done(req.response) : reject(Error(req.statusText))
+	    }
+	    req.onerror = function () { reject(Error('Network Error')) }
+	    req.send()
+	  })
+	}
+
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict'
+
+	var base64 = __webpack_require__(264)
+
+	// Given a regex, return a function that test if against a string
+	function fromRegex (r) {
+	  return function (o) { return typeof o === 'string' && r.test(o) }
+	}
+	// Try to apply a prefix to a name
+	function prefix (pre, name) {
+	  return typeof pre === 'string' ? pre + name
+	    : typeof pre === 'function' ? pre(name)
+	    : name
+	}
+
+	/**
+	 * Load one or more audio files
+	 *
+	 *
+	 * Possible option keys:
+	 *
+	 * - __from__ {Function|String}: a function or string to convert from file names to urls.
+	 * If is a string it will be prefixed to the name:
+	 * `load('snare.mp3', { from: 'http://audio.net/samples/' })`
+	 * If it's a function it receives the file name and should return the url as string.
+	 * - __only__ {Array} - when loading objects, if provided, only the given keys
+	 * will be included in the decoded object:
+	 * `load('piano.json', { only: ['C2', 'D2'] })`
+	 *
+	 * @param {Object} source - the object to be loaded
+	 * @param {Object} options - (Optional) the load options for that object
+	 * @param {Object} defaultValue - (Optional) the default value to return as
+	 * in a promise if not valid loader found
+	 */
+	function load (source, options, defVal) {
+	  var loader =
+	    // Basic audio loading
+	      isArrayBuffer(source) ? decodeBuffer
+	    : isAudioFileName(source) ? loadAudioFile
+	    : isPromise(source) ? loadPromise
+	    // Compound objects
+	    : isArray(source) ? loadArrayData
+	    : isObject(source) ? loadObjectData
+	    : isJsonFileName(source) ? loadJsonFile
+	    // Base64 encoded audio
+	    : isBase64Audio(source) ? loadBase64Audio
+	    : isJsFileName(source) ? loadMidiJSFile
+	    : null
+
+	  var opts = options || {}
+	  return loader ? loader(source, opts)
+	    : defVal ? Promise.resolve(defVal)
+	    : Promise.reject('Source not valid (' + source + ')')
+	}
+
+	// BASIC AUDIO LOADING
+	// ===================
+
+	// Load (decode) an array buffer
+	function isArrayBuffer (o) { return o instanceof ArrayBuffer }
+	function decodeBuffer (array, options) {
+	  return options.decode(array)
+	}
+
+	// Load an audio filename
+	var isAudioFileName = fromRegex(/\.(mp3|wav|ogg)(\?.*)?$/i)
+	function loadAudioFile (name, options) {
+	  var url = prefix(options.from, name)
+	  return load(options.fetch(url, 'arraybuffer'), options)
+	}
+
+	// Load the result of a promise
+	function isPromise (o) { return o && typeof o.then === 'function' }
+	function loadPromise (promise, options) {
+	  return promise.then(function (value) {
+	    return load(value, options)
+	  })
+	}
+
+	// COMPOUND OBJECTS
+	// ================
+
+	// Try to load all the items of an array
+	var isArray = Array.isArray
+	function loadArrayData (array, options) {
+	  return Promise.all(array.map(function (data) {
+	    return load(data, options, data)
+	  }))
+	}
+
+	// Try to load all the values of a key/value object
+	function isObject (o) { return o && typeof o === 'object' }
+	function loadObjectData (obj, options) {
+	  var dest = {}
+	  var promises = Object.keys(obj).map(function (key) {
+	    if (options.only && options.only.indexOf(key) === -1) return null
+	    var value = obj[key]
+	    return load(value, options, value).then(function (audio) {
+	      dest[key] = audio
+	    })
+	  })
+	  return Promise.all(promises).then(function () { return dest })
+	}
+
+	// Load the content of a JSON file
+	var isJsonFileName = fromRegex(/\.json(\?.*)?$/i)
+	function loadJsonFile (name, options) {
+	  var url = prefix(options.from, name)
+	  return load(options.fetch(url, 'text').then(JSON.parse), options)
+	}
+
+	// BASE64 ENCODED FORMATS
+	// ======================
+
+	// Load strings with Base64 encoded audio
+	var isBase64Audio = fromRegex(/^data:audio/)
+	function loadBase64Audio (source, options) {
+	  var i = source.indexOf(',')
+	  return load(base64.decode(source.slice(i + 1)).buffer, options)
+	}
+
+	// Load .js files with MidiJS soundfont prerendered audio
+	var isJsFileName = fromRegex(/\.js(\?.*)?$/i)
+	function loadMidiJSFile (name, options) {
+	  var url = prefix(options.from, name)
+	  return load(options.fetch(url, 'text').then(midiJsToJson), options)
+	}
+
+	// convert a MIDI.js javascript soundfont file to json
+	function midiJsToJson (data) {
+	  var begin = data.indexOf('MIDI.Soundfont.')
+	  if (begin < 0) throw Error('Invalid MIDI.js Soundfont format')
+	  begin = data.indexOf('=', begin) + 2
+	  var end = data.lastIndexOf(',')
+	  return JSON.parse(data.slice(begin, end) + '}')
+	}
+
+	if (typeof module === 'object' && module.exports) module.exports = load
+	if (typeof window !== 'undefined') window.loadAudio = load
+
+
+/***/ },
+/* 264 */
+/***/ function(module, exports) {
+
+	'use strict'
+
+	// DECODE UTILITIES
+	function b64ToUint6 (nChr) {
+	  return nChr > 64 && nChr < 91 ? nChr - 65
+	    : nChr > 96 && nChr < 123 ? nChr - 71
+	    : nChr > 47 && nChr < 58 ? nChr + 4
+	    : nChr === 43 ? 62
+	    : nChr === 47 ? 63
+	    : 0
+	}
+
+	// Decode Base64 to Uint8Array
+	// ---------------------------
+	function decode (sBase64, nBlocksSize) {
+	  var sB64Enc = sBase64.replace(/[^A-Za-z0-9\+\/]/g, '')
+	  var nInLen = sB64Enc.length
+	  var nOutLen = nBlocksSize
+	    ? Math.ceil((nInLen * 3 + 1 >> 2) / nBlocksSize) * nBlocksSize
+	    : nInLen * 3 + 1 >> 2
+	  var taBytes = new Uint8Array(nOutLen)
+
+	  for (var nMod3, nMod4, nUint24 = 0, nOutIdx = 0, nInIdx = 0; nInIdx < nInLen; nInIdx++) {
+	    nMod4 = nInIdx & 3
+	    nUint24 |= b64ToUint6(sB64Enc.charCodeAt(nInIdx)) << 18 - 6 * nMod4
+	    if (nMod4 === 3 || nInLen - nInIdx === 1) {
+	      for (nMod3 = 0; nMod3 < 3 && nOutIdx < nOutLen; nMod3++, nOutIdx++) {
+	        taBytes[nOutIdx] = nUint24 >>> (16 >>> nMod3 & 24) & 255
+	      }
+	      nUint24 = 0
+	    }
+	  }
+	  return taBytes
+	}
+
+	module.exports = { decode: decode }
+
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var window = __webpack_require__(266);
+
+	var Context = window.AudioContext || window.webkitAudioContext;
+	if (Context) module.exports = new Context;
+
+
+/***/ },
+/* 266 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {if (typeof window !== "undefined") {
+	    module.exports = window;
+	} else if (typeof global !== "undefined") {
+	    module.exports = global;
+	} else {
+	    module.exports = {};
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @module  audio-play Play buffer in browser via WAA */
+
+	'use strict';
+
+	const context = __webpack_require__(265);
+	const isAudioBuffer = __webpack_require__(268);
+
+	module.exports = function Play (buffer, how, cb) {
+		if (!isAudioBuffer(buffer)) throw Error('Argument should be an audio buffer');
+
+		if (how instanceof Function) {
+			cb = how;
+		}
+
+		how = how || {};
+		cb = cb || (() => {});
+
+		if (how.context == null) how.context = context;
+
+		if (how.currentTime == null) how.currentTime = 0;
+		if (how.start == null) how.start = 0;
+		if (how.end == null) how.end = buffer.duration;
+		how.start = normTime(how.start, buffer.duration);
+		how.end = normTime(how.end, buffer.duration);
+
+		let sourceNode = createNode(buffer, how);
+
+		if (!how.gain) {
+			how.gain = how.context.createGain();
+			how.gain.gain.value = how.volume == null ? 1 : how.volume;
+			how.gain.connect(context.destination);
+		}
+		sourceNode.connect(how.gain);
+
+		sourceNode.addEventListener('ended', cb);
+
+		//provide API
+		play.play = pause.play = play;
+		play.pause = pause.pause = pause;
+
+		let startTime = 0;
+		let isPlaying = false;
+
+		return how.autoplay != false ? play() : play;
+
+		function play () {
+			if (isPlaying) return pause;
+
+			isPlaying = true;
+
+			startTime = how.context.currentTime;
+
+			if (how.loop) {
+				sourceNode.start(startTime, how.start + how.currentTime);
+			}
+			else {
+				sourceNode.start(startTime, how.start + how.currentTime, how.end - how.start);
+			}
+
+			return pause;
+		}
+
+		function pause () {
+			if (!isPlaying) return pause.play;
+			isPlaying = false;
+
+			sourceNode.stop();
+			sourceNode.removeEventListener('ended', cb);
+
+			let playedTime = (how.context.currentTime - startTime);
+
+			how.autoplay = false;
+			how.currentTime = playedTime;
+
+			let playback = Play(buffer, how, cb);
+			play.play = pause.play = playback.play;
+			play.pause = pause.pause = playback.pause;
+			play.currentTime = pause.currentTime = playback.currentTime = how.currentTime;
+
+			return playback;
+		}
+	}
+
+	function normTime (time, duration) {
+		return time < 0 ? (duration + (time % duration)) : Math.min(duration, time);
+	}
+
+	function createNode (buffer, how) {
+		let sourceNode = how.context.createBufferSource();
+
+		sourceNode.buffer = buffer;
+
+		//init options
+		if (how.detune != null) sourceNode.detune = how.detune;
+		if (how.rate != null) sourceNode.playbackRate.value = how.rate;
+
+
+		if (how.loop) {
+			sourceNode.loop = true;
+			sourceNode.loopStart = how.start;
+			sourceNode.loopEnd = how.end;
+		}
+
+		return sourceNode;
+	}
+
+
+/***/ },
+/* 268 */
+/***/ function(module, exports) {
+
+	/**
+	 * @module  is-audio-buffer
+	 */
+
+	module.exports = function isAudioBuffer (buffer) {
+		//the guess is duck-typing
+		return buffer != null
+		&& buffer.sampleRate != null //swims like AudioBuffer
+		&& typeof buffer.getChannelData === 'function' //quacks like AudioBuffer
+	};
 
 /***/ }
 /******/ ]);

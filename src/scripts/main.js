@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import Header from '../components/Header/Header.js'
 import Footer from '../components/Footer/Footer.js'
 import Modal from '../components/Modal/Modal.js'
+import Player from '../components/Player/Player.js'
 
 class App extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
             <div>
                 <Header/>
                 <Modal/>
+                <Player/>
             </div>
         )
     }

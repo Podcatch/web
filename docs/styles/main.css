@@ -257,6 +257,29 @@ ul, ol {
   padding: 12px;
   border-radius: 24px; }
 
+#player {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #400580;
+  color: white;
+  height: 48px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
+  #player .clickable {
+    margin: 0 12px;
+    cursor: pointer;
+    -webkit-transition: .25s;
+    transition: .25s; }
+    #player .clickable:hover {
+      background: #5907b1; }
+
 body {
   font-family: Roboto, sans-serif; }
 
