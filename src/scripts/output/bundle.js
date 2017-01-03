@@ -60,11 +60,7 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Sidebar = __webpack_require__(259);
-
-	var _Sidebar2 = _interopRequireDefault(_Sidebar);
-
-	var _Footer = __webpack_require__(260);
+	var _Footer = __webpack_require__(259);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -34930,119 +34926,6 @@
 
 /***/ },
 /* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Sidebar = function (_React$Component) {
-	    _inherits(Sidebar, _React$Component);
-
-	    function Sidebar() {
-	        _classCallCheck(this, Sidebar);
-
-	        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
-	    }
-
-	    _createClass(Sidebar, [{
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement(
-	                "aside",
-	                { id: "sidebar" },
-	                _react2.default.createElement(
-	                    "nav",
-	                    { id: "nav" },
-	                    _react2.default.createElement(
-	                        "header",
-	                        { id: "nav-header" },
-	                        _react2.default.createElement(
-	                            "i",
-	                            { id: "nav-icon", className: "nav-header-item material-icons" },
-	                            "cancel"
-	                        ),
-	                        _react2.default.createElement(
-	                            "h3",
-	                            { id: "nav-title", className: "nav-header-item" },
-	                            "Menu"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "ul",
-	                        { id: "nav-list" },
-	                        _react2.default.createElement(
-	                            "li",
-	                            { className: "nav-entry" },
-	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "#", className: "nav-link" },
-	                                "Discover"
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            "li",
-	                            { className: "nav-entry" },
-	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "#", className: "nav-link" },
-	                                "New Releases"
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            "li",
-	                            { className: "nav-entry" },
-	                            _react2.default.createElement(
-	                                "a",
-	                                { href: "#", className: "nav-link" },
-	                                "Categories"
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Sidebar;
-	}(_react2.default.Component);
-
-	exports.default = Sidebar;
-
-	/*
-	mixin sidebar
-	    aside#sidebar
-	        nav#nav
-	            header#nav-header
-	                i#nav-icon.nav-header-item.material-icons menu
-	                h3#nav-title.nav-header-item Menu
-	            ul#nav-list
-	                li.nav-entry
-	                    a.nav-link Discover
-	                li.nav-entry
-	                    a.nav-link New Releases
-	                li.nav-entry
-	                    a.nav-link Categories
-	*/
-
-/***/ },
-/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
