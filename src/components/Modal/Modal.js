@@ -3,8 +3,31 @@ import React from 'react'
 class Modal extends React.Component {
     render() {
         return (
-            <div>
-                <h1>This is a modal</h1>
+            <div className="modal">
+                <button className="modal-close">
+                    <i className="material-icons modal-close-icon">close</i>
+                </button>
+                <section className="modal-title-section">
+                    <span className="modal-title">Podcatch</span>
+                </section>
+                <section className="modal-input-section">
+                    <form method="post" action="/login" id="form" name="loginForm">
+                    <div className="modal-input-wrap">
+                        <input className="modal-item modal-input username" for="loginForm" id="userVal" name="username" placeholder="Username"></input>
+                        <i className="modal-icon material-icons">person</i>
+                        <div className="modal-input-tab"></div>
+                        <div className="modal-input-border"></div>
+                    </div>
+                    <div className="modal-input-wrap">
+                        <input className="modal-item modal-input username" for="loginForm" id="passVal" name="password" placeholder="Password" type="password"></input>
+                        <i className="modal-icon material-icons">lock</i>
+                        <div className="modal-input-tab"></div>
+                        <div className="modal-input-border"></div>
+                        <button className="modal-item modal-button submit" id="btnSubmit" type="submit">Login</button>
+                    </div>
+                    </form>
+                </section>
+                <section className="modal-button-section"></section>
             </div>
         )
     }

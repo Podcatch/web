@@ -64,6 +64,10 @@
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
+	var _Modal = __webpack_require__(260);
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90,7 +94,8 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_Header2.default, null)
+	                _react2.default.createElement(_Header2.default, null),
+	                _react2.default.createElement(_Modal2.default, null)
 	            );
 	        }
 	    }]);
@@ -34972,6 +34977,132 @@
 	}(_react2.default.Component);
 
 	exports.default = Footer;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Modal = function (_React$Component) {
+	    _inherits(Modal, _React$Component);
+
+	    function Modal() {
+	        _classCallCheck(this, Modal);
+
+	        return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+	    }
+
+	    _createClass(Modal, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "modal" },
+	                _react2.default.createElement(
+	                    "button",
+	                    { className: "modal-close" },
+	                    _react2.default.createElement(
+	                        "i",
+	                        { className: "material-icons modal-close-icon" },
+	                        "close"
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "section",
+	                    { className: "modal-title-section" },
+	                    _react2.default.createElement(
+	                        "span",
+	                        { className: "modal-title" },
+	                        "Podcatch"
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "section",
+	                    { className: "modal-input-section" },
+	                    _react2.default.createElement(
+	                        "form",
+	                        { method: "post", action: "/login", id: "form", name: "loginForm" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "modal-input-wrap" },
+	                            _react2.default.createElement("input", { className: "modal-item modal-input username", "for": "loginForm", id: "userVal", name: "username", placeholder: "Username" }),
+	                            _react2.default.createElement(
+	                                "i",
+	                                { className: "modal-icon material-icons" },
+	                                "person"
+	                            ),
+	                            _react2.default.createElement("div", { className: "modal-input-tab" }),
+	                            _react2.default.createElement("div", { className: "modal-input-border" })
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "modal-input-wrap" },
+	                            _react2.default.createElement("input", { className: "modal-item modal-input username", "for": "loginForm", id: "passVal", name: "password", placeholder: "Password", type: "password" }),
+	                            _react2.default.createElement(
+	                                "i",
+	                                { className: "modal-icon material-icons" },
+	                                "lock"
+	                            ),
+	                            _react2.default.createElement("div", { className: "modal-input-tab" }),
+	                            _react2.default.createElement("div", { className: "modal-input-border" }),
+	                            _react2.default.createElement(
+	                                "button",
+	                                { className: "modal-item modal-button submit", id: "btnSubmit", type: "submit" },
+	                                "Login"
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement("section", { className: "modal-button-section" })
+	            );
+	        }
+	    }]);
+
+	    return Modal;
+	}(_react2.default.Component);
+
+	exports.default = Modal;
+	/*
+	mixin modal
+	    .modal
+	        button.modal-close(v-on:click='showModal = false')
+	            i.material-icons.modal-close-icon close
+	        section.modal-title-section
+	            span.modal-title Podcatch
+	        section.modal-input-section
+	          form(method='post' action='/login' id='form' name='loginForm')
+	            .modal-input-wrap
+	                input.modal-item.modal-input.username(for ='loginForm' id='userVal' name='username' placeholder='Username')
+	                i.modal-icon.material-icons person
+	                .modal-input-tab
+	                .modal-input-border
+	            .modal-input-wrap
+	                input.modal-item.modal-input.password(for='loginForm' id='passVal' name='password' placeholder='Password' type='password')
+	                i.modal-icon.material-icons lock
+	                .modal-input-tab
+	                .modal-input-border
+	                button.modal-item.modal-button.submit(id='btnSubmit' type='submit') Login
+	        section.modal-button-section
+	*/
 
 /***/ }
 /******/ ]);
