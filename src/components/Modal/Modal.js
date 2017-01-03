@@ -13,13 +13,13 @@ class Modal extends React.Component {
                 <section className="modal-input-section">
                     <form method="post" action="/login" id="form" name="loginForm">
                     <div className="modal-input-wrap">
-                        <input className="modal-item modal-input username" for="loginForm" id="userVal" name="username" placeholder="Username"></input>
+                        <input className="modal-item modal-input username" htmlFor="loginForm" id="userVal" name="username" placeholder="Username"></input>
                         <i className="modal-icon material-icons">person</i>
                         <div className="modal-input-tab"></div>
                         <div className="modal-input-border"></div>
                     </div>
                     <div className="modal-input-wrap">
-                        <input className="modal-item modal-input username" for="loginForm" id="passVal" name="password" placeholder="Password" type="password"></input>
+                        <input className="modal-item modal-input username" htmlFor="loginForm" id="passVal" name="password" placeholder="Password" type="password"></input>
                         <i className="modal-icon material-icons">lock</i>
                         <div className="modal-input-tab"></div>
                         <div className="modal-input-border"></div>
