@@ -39,22 +39,17 @@
   },
   "homepage": "https://github.com/Podcatch/podcatch.github.io#readme",
   "dependencies": {
+    "audio-loader": "^0.6.0",
+    "audio-play": "^2.1.0",
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "connect-ensure-login": "^0.1.1",
     "express": "^4.14.0",
     "firebase": "^3.6.1",
-    "material-ui": "^0.16.5",
-    "mongodb": "^2.2.11",
-    "passport": "^0.3.2",
-    "passport-auth0": "^0.5.2",
     "pug": "^2.0.0-beta6",
     "react": "^15.4.1",
     "react-burger-menu": "^1.10.10",
     "react-dom": "^15.4.1",
-    "react-tap-event-plugin": "^2.0.1",
-    "request": "^2.75.0",
-    "vue": "^2.0.3",
-    "vue-router": "^2.0.1"
+    "request": "^2.75.0"
   }
 }
