@@ -10,3 +10,4 @@
 * As a listener, I want to have folders for more organization
 * As a listener, I want to have linkable playlists to share with friends
 * As a listener, I want to make notes on episodes to keep track of information and write down my thoughts
+* As a listener, I would like to receive email digests containing my favorite Podcasts
