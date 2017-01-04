@@ -83,6 +83,7 @@
 	// Import components
 
 
+	// Convert to conditional rendering based on menu selection
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
 
