@@ -50,5 +50,6 @@ We can access the top 50 in a few steps
 1. Put top fifty URL in and extract the id from each 'href' field in the JSON with regEX
 2. Load this link with said id https://itunes.apple.com/lookup?id=(showID)&entity=podcast
 3. Grab the 'feedURL' field from the JSON file
+4. The feedURL should give you an XML file and from the enclosure URL you can access the audio file
 This strategy can also be used when loading shows that a user has searched for
 */
