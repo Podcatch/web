@@ -19,7 +19,7 @@ function searchFor(searchterm) {
 }
 
 // Grab feed URL from iTunes and then work with the metadata/article props
-function getFeed(feedURL) {
+function parseFeed(feedURL) {
     let title, description, link, date, pubdate, author, language, image, categories
     let req = request(feedURL),
         feedParser = new FeedParser()
@@ -41,7 +41,7 @@ function getFeed(feedURL) {
 }
 
 // Call getFeed for each feed encountered
-getFeed('http://feeds.gimletmedia.com/hearstartup')
+parseFeed('http://feeds.gimletmedia.com/hearstartup')
 
 // Apply for Enterprise Partner Feed to not get rate-limited: https://affiliate.itunes.apple.com/resources/documentation/itunes-enterprise-partner-feed/
 
@@ -49,7 +49,6 @@ getFeed('http://feeds.gimletmedia.com/hearstartup')
 We can access the top 50 in a few steps
 1. Put top fifty URL in and extract the id from each 'href' field in the JSON with regEX
 2. Load this link with said id https://itunes.apple.com/lookup?id=(showID)&entity=podcast
-3. Grab the 'feedURL' field from the JSON file
-4. The feedURL should give you an XML file and from the enclosure URL you can access the audio file
+3. Use feedparser to get important metadata from feed
 This strategy can also be used when loading shows that a user has searched for
 */
