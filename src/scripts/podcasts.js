@@ -44,3 +44,11 @@ function getFeed(feedURL) {
 getFeed('http://feeds.gimletmedia.com/hearstartup')
 
 // Apply for Enterprise Partner Feed to not get rate-limited: https://affiliate.itunes.apple.com/resources/documentation/itunes-enterprise-partner-feed/
+
+/*
+We can access the top 50 in a few steps
+1. Put top fifty URL in and extract the id from each 'href' field in the JSON with regEX
+2. Load this link with said id https://itunes.apple.com/lookup?id=(showID)&entity=podcast
+3. Grab the 'feedURL' field from the JSON file
+This strategy can also be used when loading shows that a user has searched for
+*/
