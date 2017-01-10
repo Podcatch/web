@@ -22,7 +22,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
-app.set('port', process.env.PORT || 443)
+app.set('port', process.env.PORT || 8080)
 
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
