@@ -23,8 +23,6 @@ app.use(express.static(path.join(__dirname, '../../docs')))
 app.use(express.static(path.join(__dirname, '../../src')))
 
 app.set('port', process.env.PORT || 443)
-// app.set('views', 'src/pages')
-// app.set('view engine', 'html')
 
 app.listen(app.get('port'))
 console.log('Listening on port: ' + app.get('port'))
@@ -50,9 +48,6 @@ app.post('/login', urlencodedParser, function(req, res) {
         errorMessage = error.message
   })
 })
-
-// Social login
-//let provider = new firebase.auth.TwitterAuthProvider();
 
 // Log out
 app.post('/logout', function(req, res) {
