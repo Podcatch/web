@@ -1,4 +1,5 @@
 // Initialize
+"use strict";
 const firebase = require('firebase')
 const express = require('express')
 const bodyParser = require('body-parser')
