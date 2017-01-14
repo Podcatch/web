@@ -39,10 +39,6 @@ function parseFeed(feedURL) {
         while (item = stream.read()) { console.log("Title: " + item.title + "\n" + "Author: " + item.author) }
     })
 }
-
-// Call getFeed for each feed encountered
-parseFeed('http://feeds.gimletmedia.com/hearstartup')
-
 // Apply for Enterprise Partner Feed to not get rate-limited: https://affiliate.itunes.apple.com/resources/documentation/itunes-enterprise-partner-feed/
 
 /*
@@ -52,3 +48,16 @@ We can access the top 50 in a few steps
 3. Use feedparser to get important metadata from feed
 This strategy can also be used when loading shows that a user has searched for
 */
+function grabTop50() {
+    request({url: topFifty, json: true}, function(error, response, body) {
+        body.feed.entry.forEach(function(datum) {
+            //console.log(datum.im:name.label)
+            //console.log(datum.im:image.label)
+            console.log(datum.summary.label + "\n")
+        })
+    })
+}
+
+// Call getFeed for each feed encountered
+// parseFeed('http://feeds.gimletmedia.com/hearstartup')
+grabTop50()
