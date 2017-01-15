@@ -51,13 +51,12 @@ This strategy can also be used when loading shows that a user has searched for
 function grabTop50() {
     request({url: topFifty, json: true}, function(error, response, body) {
         body.feed.entry.forEach(function(datum) {
-            //console.log(datum.im:name.label)
-            //console.log(datum.im:image.label)
+            console.log(datum["im:name"].label)
+            console.log(datum["im:image"][0].label)
             console.log(datum.summary.label + "\n")
         })
     })
 }
 
-// Call getFeed for each feed encountered
 // parseFeed('http://feeds.gimletmedia.com/hearstartup')
 grabTop50()
