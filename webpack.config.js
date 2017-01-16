@@ -1,6 +1,5 @@
 module.exports = {
     entry: './src/scripts/main.js',
-
     module: {
         loaders: [
             {
@@ -10,7 +9,6 @@ module.exports = {
             }
         ],
     },
-
     output: {
         path: './src/scripts/output/',
         filename: 'bundle.js'

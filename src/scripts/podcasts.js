@@ -1,11 +1,8 @@
 // Grab RSS feeds
 const firebase = require('firebase'),
-    FeedParser = require('feedparser'),
-    request = require('request')
-
+    FeedParser = require('feedparser')
 // Grab feed data from iTunes API then convert it to a CSV (every few hours)
 let baseURL = 'https://itunes.apple.com/search?media=podcast&'
-let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json'
 
 // Search for a Podcast
 function searchFor(searchterm) {
@@ -13,9 +10,7 @@ function searchFor(searchterm) {
     console.log('Your search term is: ' + searchterm)
     let newSearchURL = baseURL + "term=" + searchterm.split(' ').join('+').toLowerCase()
     console.log('Your new search term is: ' + newSearchURL)
-
     // Query iTunes API and display results in React
-    
 }
 
 // Grab feed URL from iTunes and then work with the metadata/article props
@@ -48,15 +43,3 @@ We can access the top 50 in a few steps
 3. Use feedparser to get important metadata from feed
 This strategy can also be used when loading shows that a user has searched for
 */
-function grabTop50() {
-    request({url: topFifty, json: true}, function(error, response, body) {
-        body.feed.entry.forEach(function(datum) {
-            console.log(datum["im:name"].label)
-            console.log(datum["im:image"][0].label)
-            console.log(datum.summary.label + "\n")
-        })
-    })
-}
-
-// parseFeed('http://feeds.gimletmedia.com/hearstartup')
-grabTop50()

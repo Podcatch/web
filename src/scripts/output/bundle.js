@@ -68,7 +68,11 @@
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
-	var _Player = __webpack_require__(261);
+	var _Chart = __webpack_require__(261);
+
+	var _Chart2 = _interopRequireDefault(_Chart);
+
+	var _Player = __webpack_require__(262);
 
 	var _Player2 = _interopRequireDefault(_Player);
 
@@ -100,7 +104,7 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_Header2.default, null),
-	                _react2.default.createElement(_Modal2.default, null),
+	                _react2.default.createElement(_Chart2.default, null),
 	                _react2.default.createElement(_Player2.default, null)
 	            );
 	        }
@@ -35134,9 +35138,69 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var load = __webpack_require__(262);
-	var play = __webpack_require__(267);
-	var context = __webpack_require__(265);
+	// Charts will be for displaying top podcasts, trending podcasts, etc.
+	var Chart = function (_React$Component) {
+	    _inherits(Chart, _React$Component);
+
+	    function Chart() {
+	        _classCallCheck(this, Chart);
+
+	        return _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).apply(this, arguments));
+	    }
+
+	    _createClass(Chart, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json';
+	            fetch(topFifty).then(function (response) {
+	                return response.json().then(function (json) {
+	                    json.feed.entry.forEach(function (datum) {
+	                        console.log(datum["im:name"].label);
+	                        console.log(datum["im:image"][0].label);
+	                        console.log(datum.summary.label + "\n");
+	                    });
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', null);
+	        }
+	    }]);
+
+	    return Chart;
+	}(_react2.default.Component);
+
+	exports.default = Chart;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var load = __webpack_require__(263);
+	var play = __webpack_require__(268);
+	var context = __webpack_require__(266);
 	var url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/media/anon.npr-mp3/npr/hibt/2016/12/20161221_hibt_zumba.mp3?orgId=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313";
 
 	var Player = function (_React$Component) {
@@ -35200,13 +35264,13 @@
 	exports.default = Player;
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global XMLHttpRequest */
 	'use strict'
-	var load = __webpack_require__(263)
-	var context = __webpack_require__(265)
+	var load = __webpack_require__(264)
+	var context = __webpack_require__(266)
 
 	module.exports = function (source, options) {
 	  var ac = options && options.context ? options.context : context
@@ -35251,12 +35315,12 @@
 
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict'
 
-	var base64 = __webpack_require__(264)
+	var base64 = __webpack_require__(265)
 
 	// Given a regex, return a function that test if against a string
 	function fromRegex (r) {
@@ -35396,7 +35460,7 @@
 
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -35438,17 +35502,17 @@
 
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var window = __webpack_require__(266);
+	var window = __webpack_require__(267);
 
 	var Context = window.AudioContext || window.webkitAudioContext;
 	if (Context) module.exports = new Context;
 
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {if (typeof window !== "undefined") {
@@ -35462,15 +35526,15 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @module  audio-play Play buffer in browser via WAA */
 
 	'use strict';
 
-	const context = __webpack_require__(265);
-	const isAudioBuffer = __webpack_require__(268);
+	const context = __webpack_require__(266);
+	const isAudioBuffer = __webpack_require__(269);
 
 	module.exports = function Play (buffer, how, cb) {
 		if (!isAudioBuffer(buffer)) throw Error('Argument should be an audio buffer');
@@ -35573,7 +35637,7 @@
 
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports) {
 
 	/**
