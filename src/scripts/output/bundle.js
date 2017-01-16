@@ -68,7 +68,7 @@
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
-	var _Chart = __webpack_require__(261);
+	var _Chart = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Chart/Chart.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _Chart2 = _interopRequireDefault(_Chart);
 
@@ -35115,66 +35115,7 @@
 	*/
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Charts will be for displaying top podcasts, trending podcasts, etc.
-	var Chart = function (_React$Component) {
-	    _inherits(Chart, _React$Component);
-
-	    function Chart() {
-	        _classCallCheck(this, Chart);
-
-	        return _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).apply(this, arguments));
-	    }
-
-	    _createClass(Chart, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json';
-	            fetch(topFifty).then(function (response) {
-	                return response.json().then(function (json) {
-	                    json.feed.entry.forEach(function (datum) {
-	                        console.log(datum["im:name"].label);
-	                        console.log(datum["im:image"][0].label);
-	                        console.log(datum.summary.label + "\n");
-	                    });
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement('div', null);
-	        }
-	    }]);
-
-	    return Chart;
-	}(_react2.default.Component);
-
-	exports.default = Chart;
-
-/***/ },
+/* 261 */,
 /* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
