@@ -68,7 +68,7 @@
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
-	var _Chart = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Chart/Chart.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Chart = __webpack_require__(261);
 
 	var _Chart2 = _interopRequireDefault(_Chart);
 
@@ -35115,7 +35115,77 @@
 	*/
 
 /***/ },
-/* 261 */,
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json',
+	    names = [],
+	    images = [],
+	    summaries = [];
+
+	// Charts will be for displaying top podcasts, trending podcasts, etc.
+
+	var Chart = function (_React$Component) {
+	    _inherits(Chart, _React$Component);
+
+	    function Chart() {
+	        _classCallCheck(this, Chart);
+
+	        return _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).apply(this, arguments));
+	    }
+
+	    _createClass(Chart, [{
+	        key: 'render',
+	        value: function render() {
+	            // Fetch metadata
+	            fetch(topFifty).then(function (response) {
+	                return response.json().then(function (json) {
+	                    json.feed.entry.forEach(function (datum) {
+	                        names.push(datum["im:name"].label);
+	                        images.push(datum["im:image"][0].label);
+	                        summaries.push(datum.summary.label);
+	                    });
+	                });
+	            });
+
+	            var display = images.forEach(function (val) {
+	                return "<img src='http://i.imgur.com/SFnLT2e.jpg'></img>";
+	            });
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                display
+	            );
+	        }
+	    }]);
+
+	    return Chart;
+	}(_react2.default.Component);
+
+	exports.default = Chart;
+
+/***/ },
 /* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -35142,7 +35212,7 @@
 	var load = __webpack_require__(263);
 	var play = __webpack_require__(268);
 	var context = __webpack_require__(266);
-	var url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/media/anon.npr-mp3/npr/hibt/2016/12/20161221_hibt_zumba.mp3?orgId=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313";
+	var url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/med…Id=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313";
 
 	var Player = function (_React$Component) {
 	    _inherits(Player, _React$Component);

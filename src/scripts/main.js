@@ -14,7 +14,6 @@ class App extends React.Component {
         return(
             <div>
                 <Header/>
-                {/*<Modal/>*/}
                 <Chart/>
                 <Player/>
             </div>

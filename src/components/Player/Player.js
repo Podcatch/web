@@ -2,7 +2,7 @@ import React from 'react'
 const load = require('audio-loader')
 const play = require('audio-play')
 const context = require('audio-context')
-let url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/media/anon.npr-mp3/npr/hibt/2016/12/20161221_hibt_zumba.mp3?orgId=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313"
+let url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/med…Id=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313"
 
 class Player extends React.Component {
     constructor(props) {
