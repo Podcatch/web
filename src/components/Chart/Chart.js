@@ -1,30 +1,46 @@
 import React from 'react'
-let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json',
-    names = [],
-    images = [],
-    summaries = []
+let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json'
 
 // Charts will be for displaying top podcasts, trending podcasts, etc.
 class Chart extends React.Component {
-    render() {
-        // Fetch metadata
+    constructor(props) {
+        super(props)
+        this.state = {
+            names: [],
+            images: [],
+            summaries: []
+        }
+    }
+
+    componentDidMount(){
+        let that = this
         fetch(topFifty).then(function(response) {
             return response.json().then(function(json) {
+                let names = [],
+                    images = [],
+                    summaries = []
                 json.feed.entry.forEach(function(datum) {
                     names.push(datum["im:name"].label)
                     images.push(datum["im:image"][0].label)
                     summaries.push(datum.summary.label)
                 })
+                that.setState({
+                    names: names,
+                    images: images,
+                    summaries: summaries
+                })
+                console.log(names)
+                console.log(images)
             })
         })
+    }
 
-        let display = images.forEach(function(val) {
-            return "<img src='http://i.imgur.com/SFnLT2e.jpg'></img>"
-        })
-
-        return (
+    render() {
+        return ( 
             <div>
-                {display}
+                {this.state.images.map(function(showVal) {
+                    return <img src={showVal}></img>
+                })}
             </div>
         )
     }

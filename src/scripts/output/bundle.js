@@ -35138,44 +35138,59 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json',
-	    names = [],
-	    images = [],
-	    summaries = [];
+	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json';
 
 	// Charts will be for displaying top podcasts, trending podcasts, etc.
 
 	var Chart = function (_React$Component) {
 	    _inherits(Chart, _React$Component);
 
-	    function Chart() {
+	    function Chart(props) {
 	        _classCallCheck(this, Chart);
 
-	        return _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).call(this, props));
+
+	        _this.state = {
+	            names: [],
+	            images: [],
+	            summaries: []
+	        };
+	        return _this;
 	    }
 
 	    _createClass(Chart, [{
-	        key: 'render',
-	        value: function render() {
-	            // Fetch metadata
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var that = this;
 	            fetch(topFifty).then(function (response) {
 	                return response.json().then(function (json) {
+	                    var names = [],
+	                        images = [],
+	                        summaries = [];
 	                    json.feed.entry.forEach(function (datum) {
 	                        names.push(datum["im:name"].label);
 	                        images.push(datum["im:image"][0].label);
 	                        summaries.push(datum.summary.label);
 	                    });
+	                    that.setState({
+	                        names: names,
+	                        images: images,
+	                        summaries: summaries
+	                    });
+	                    console.log(names);
+	                    console.log(images);
 	                });
 	            });
-
-	            var display = images.forEach(function (val) {
-	                return "<img src='http://i.imgur.com/SFnLT2e.jpg'></img>";
-	            });
-
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                display
+	                this.state.images.map(function (showVal) {
+	                    return _react2.default.createElement('img', { src: showVal });
+	                })
 	            );
 	        }
 	    }]);
@@ -35212,7 +35227,7 @@
 	var load = __webpack_require__(263);
 	var play = __webpack_require__(268);
 	var context = __webpack_require__(266);
-	var url = "https://play.podtrac.com/npr-510313/npr.mc.tritondigital.com/NPR_510313/med…Id=1&d=2364&p=510313&story=506456213&t=podcast&e=506456213&ft=pod&f=510313";
+	var url = "http://k006.kiwi6.com/hotlink/89egzfld8n/Fragile.mp3";
 
 	var Player = function (_React$Component) {
 	    _inherits(Player, _React$Component);
