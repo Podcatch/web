@@ -1,6 +1,7 @@
 // Grab RSS feeds
 const firebase = require('firebase'),
-    FeedParser = require('feedparser')
+    FeedParser = require('feedparser'),
+    request = require('request')
 // Grab feed data from iTunes API then convert it to a CSV (every few hours)
 let baseURL = 'https://itunes.apple.com/search?media=podcast&'
 
@@ -34,6 +35,8 @@ function parseFeed(feedURL) {
         while (item = stream.read()) { console.log("Title: " + item.title + "\n" + "Author: " + item.author) }
     })
 }
+
+parseFeed("https://itunes.apple.com/lookup?id=523121474&entity=podcast")
 // Apply for Enterprise Partner Feed to not get rate-limited: https://affiliate.itunes.apple.com/resources/documentation/itunes-enterprise-partner-feed/
 
 /*
