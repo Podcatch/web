@@ -42,12 +42,14 @@ class Chart extends React.Component {
     render() {
         let showIds = this.state.showID
         return ( 
-            <div> 
-            {
-                this.state.images.map(function(showVal, i) {
-                    return <a href="http://podcatch.io/"><img src={showVal} key={showIds[i]}></img></a>
-                })
-            } 
+            <div>
+                <div id="topFifty"> 
+                    {
+                        this.state.images.map(function(showVal, i) {
+                            return <a href="http://podcatch.io/"><img src={showVal} key={showIds[i]}></img></a>
+                        })
+                    } 
+                </div>
             </div>
         )
     }
