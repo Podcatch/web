@@ -80,47 +80,25 @@ ul, ol {
 #search {
   margin-right: 5%; }
 
-#sidebar {
-  position: absolute;
-  min-width: 200px;
-  background: #242436;
-  color: white; }
+a {
+  color: white;
+  text-decoration: none; }
 
-#nav-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 4px; }
+.menu-item {
+  -webkit-transition: color 5s ease;
+  transition: color 5s ease;
+  color: white;
+  padding: 15px 0 0 15px; }
 
-.nav-header-item {
-  padding: 2px;
-  color: white; }
+.menu-item:hover {
+  color: #380470; }
 
-#nav-icon {
-  font-size: 1rem; }
-
-#nav-title {
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1;
-  text-transform: uppercase; }
-
-.nav-entry {
-  border-top: thin solid #383855; }
-
-.nav-link {
-  padding: 0 16px;
-  display: block;
-  line-height: 40px;
-  font-weight: 100;
-  -webkit-transition: .25s;
-  transition: .25s; }
-  .nav-link:hover {
-    cursor: pointer;
-    background: #383855; }
+.bm-menu {
+  background: #100120;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.5em;
+  height: 100%;
+  bottom: 5%; }
 
 .overlay {
   position: fixed;
