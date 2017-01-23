@@ -257,6 +257,12 @@ ul, ol {
   padding: 12px;
   border-radius: 24px; }
 
+body {
+  margin: 0; }
+
+html, body, #wrap {
+  height: 100%; }
+
 #wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,12 +327,10 @@ ul, ol {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background: #FFFFFF;
-  margin-left: 50%; }
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  margin-top: 15%; }
 
 body {
   font-family: Roboto, sans-serif; }

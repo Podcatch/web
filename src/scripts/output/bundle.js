@@ -35151,12 +35151,7 @@
 
 	        var _this = _possibleConstructorReturn(this, (Chart.__proto__ || Object.getPrototypeOf(Chart)).call(this, props));
 
-	        _this.state = {
-	            names: [],
-	            images: [],
-	            summaries: [],
-	            showID: []
-	        };
+	        _this.state = { names: [], images: [], modifiedImages: [], summaries: [], showID: [] };
 	        return _this;
 	    }
 
@@ -35168,21 +35163,25 @@
 	                return response.json().then(function (json) {
 	                    var names = [],
 	                        images = [],
+	                        modifiedImages = [],
 	                        summaries = [],
-	                        showID = [];
+	                        showID = [],
+	                        featuredSize = '250x250';
 	                    json.feed.entry.forEach(function (datum) {
 	                        names.push(datum["im:name"].label);
 	                        images.push(datum["im:image"][0].label);
-	                        summaries.push(datum.summary.label);
 	                        showID.push(datum.id.attributes["im:id"]);
 	                    });
-	                    that.setState({
-	                        names: names,
-	                        images: images,
-	                        summaries: summaries,
-	                        showID: showID
+
+	                    // Take the image url and change the size to a non-preset from the API
+	                    images.forEach(function (i) {
+	                        var str = i;
+	                        str = str.replace(/\d{2}x\d{2}|\d{3}x\d{3}/, featuredSize);
+	                        modifiedImages.push(str);
 	                    });
-	                    console.log(showID);
+
+	                    console.log(modifiedImages);
+	                    that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
 	                });
 	            });
 	        }
@@ -35196,7 +35195,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'topFifty' },
-	                    this.state.images.map(function (showVal, i) {
+	                    this.state.modifiedImages.map(function (showVal, i) {
 	                        return _react2.default.createElement(
 	                            'a',
 	                            { href: 'http://podcatch.io/' },

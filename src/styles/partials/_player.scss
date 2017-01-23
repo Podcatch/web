@@ -1,4 +1,10 @@
+body {
+  margin: 0;
+}
 
+html, body, #wrap {
+  height: 100%;
+}
 
 #wrap {
   display: flex;

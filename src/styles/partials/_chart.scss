@@ -1,6 +1,6 @@
 #topFifty {
     display: flex;
-    flex-direction:column;
-    background: #FFFFFF;
-    margin-left: 100%;
+    flex-wrap: wrap;
+    position: absolute;
+    margin-top: 15%;
 }
