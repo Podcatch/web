@@ -77,6 +77,9 @@ ul, ol {
   line-height: 1;
   font-weight: bold; }
 
+#search {
+  margin-right: 5%; }
+
 #sidebar {
   position: absolute;
   min-width: 200px;
@@ -278,6 +281,9 @@ html, body, #wrap {
           flex: 1; }
 
 #playbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   height: 3rem;
   color: white;
   background: #400580;
@@ -330,7 +336,8 @@ html, body, #wrap {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: absolute;
-  margin-top: 15%; }
+  margin-top: 15%;
+  margin-left: 12%; }
 
 body {
   font-family: Roboto, sans-serif; }

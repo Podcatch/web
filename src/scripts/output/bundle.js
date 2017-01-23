@@ -21603,6 +21603,11 @@
 	                        { id: 'title' },
 	                        'Podcatch'
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'i',
+	                    { className: 'material-icons', id: 'search' },
+	                    'search'
 	                )
 	            );
 	        }
@@ -35166,7 +35171,7 @@
 	                        modifiedImages = [],
 	                        summaries = [],
 	                        showID = [],
-	                        featuredSize = '250x250';
+	                        featuredSize = '200x200';
 	                    json.feed.entry.forEach(function (datum) {
 	                        names.push(datum["im:name"].label);
 	                        images.push(datum["im:image"][0].label);
