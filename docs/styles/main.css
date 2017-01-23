@@ -257,28 +257,65 @@ ul, ol {
   padding: 12px;
   border-radius: 24px; }
 
-#player {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+#wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #400580;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+#content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+#playbar {
+  height: 3rem;
   color: white;
-  height: 48px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
-  #player .clickable {
-    margin: 0 12px;
-    cursor: pointer;
-    -webkit-transition: .25s;
-    transition: .25s; }
-    #player .clickable:hover {
-      background: #5907b1; }
+  background: #400580;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5%; }
+  #playbar #buttons {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+    #playbar #buttons button {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white; }
+      #playbar #buttons button:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1); }
+    #playbar #buttons i {
+      font-size: 2rem;
+      padding: 0.5rem; }
+  #playbar #track {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  #playbar .track {
+    height: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    margin: 1.25rem; }
+    #playbar .track .knob {
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: white;
+      -webkit-transform: translate(-25%, -25%);
+              transform: translate(-25%, -25%); }
+      #playbar .track .knob:hover {
+        cursor: pointer; }
 
 #topFifty {
   display: -webkit-box;
@@ -289,7 +326,7 @@ ul, ol {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #FFFFFF;
-  margin-left: 100%; }
+  margin-left: 50%; }
 
 body {
   font-family: Roboto, sans-serif; }

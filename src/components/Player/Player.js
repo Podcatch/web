@@ -19,17 +19,28 @@ class Player extends React.Component {
 
     render() {
         return (
-            <div id="player">
-            <p>Playing</p>
-                <div id="controls">
-                    <div id="play_pause">
-                        <i className="material-icons" onClick={this.start(url)}>play_circle_outline</i>
-                    </div>
-                    <div id="time">
-                        <div id="playhead"></div>
-                    </div>
-                </div>
-            </div>
+<div id='wrap'>
+  <article id='content'></article>
+  <footer id='playbar'>
+    <div id='buttons'>
+      <button id='prev'>
+        <i className='material-icons'>skip_previous</i>
+      </button>
+      <button id='play'>
+        <i className='material-icons'>play_arrow</i>
+      </button>
+      <button id='next'>
+        <i className='material-icons'>skip_next</i>
+      </button>
+    </div>
+    <div id='track'>
+      <div className='track'>
+        <div className='knob'>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
         )
     }
 }

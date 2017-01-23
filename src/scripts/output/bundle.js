@@ -49416,7 +49416,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -49439,61 +49439,83 @@
 	var url = "http://k006.kiwi6.com/hotlink/89egzfld8n/Fragile.mp3";
 
 	var Player = function (_React$Component) {
-	    _inherits(Player, _React$Component);
+	  _inherits(Player, _React$Component);
 
-	    function Player(props) {
-	        _classCallCheck(this, Player);
+	  function Player(props) {
+	    _classCallCheck(this, Player);
 
-	        var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
 
-	        _this.state = {
-	            playing: false
-	        };
-	        return _this;
+	    _this.state = {
+	      playing: false
+	    };
+	    return _this;
+	  }
+
+	  // Starting and stopping audio
+
+
+	  _createClass(Player, [{
+	    key: 'start',
+	    value: function start(podcast) {
+	      load(podcast).then(play);
 	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { id: 'wrap' },
+	        _react2.default.createElement('article', { id: 'content' }),
+	        _react2.default.createElement(
+	          'footer',
+	          { id: 'playbar' },
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'buttons' },
+	            _react2.default.createElement(
+	              'button',
+	              { id: 'prev' },
+	              _react2.default.createElement(
+	                'i',
+	                { className: 'material-icons' },
+	                'skip_previous'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { id: 'play' },
+	              _react2.default.createElement(
+	                'i',
+	                { className: 'material-icons' },
+	                'play_arrow'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { id: 'next' },
+	              _react2.default.createElement(
+	                'i',
+	                { className: 'material-icons' },
+	                'skip_next'
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'track' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'track' },
+	              _react2.default.createElement('div', { className: 'knob' })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
 
-	    // Starting and stopping audio
-
-
-	    _createClass(Player, [{
-	        key: 'start',
-	        value: function start(podcast) {
-	            load(podcast).then(play);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { id: 'player' },
-	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    'Playing'
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { id: 'controls' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'play_pause' },
-	                        _react2.default.createElement(
-	                            'i',
-	                            { className: 'material-icons', onClick: this.start(url) },
-	                            'play_circle_outline'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { id: 'time' },
-	                        _react2.default.createElement('div', { id: 'playhead' })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Player;
+	  return Player;
 	}(_react2.default.Component);
 
 	exports.default = Player;
