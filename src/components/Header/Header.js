@@ -25,7 +25,7 @@ class Header extends React.Component {
             <div id="header">
             <div className="header-section">
                 <Menu/>
-                <i className="material-icons clickable">menu</i>
+                {/* <i className="material-icons clickable">menu</i> */}
                 <div id="title">Podcatch</div>
             </div>
             <i className="material-icons" id="search">search</i>
