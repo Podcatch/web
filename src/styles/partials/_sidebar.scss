@@ -3,6 +3,29 @@ a {
   text-decoration: none;
 }
 
+// Burger menu
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+  margin-bottom: 5px;
+}
+
+.bm-burger-bars {
+  background: white;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: white;
+}
+
 .menu-item {
   -webkit-transition: color 5s ease;
   transition: color 5s ease;
@@ -11,7 +34,7 @@ a {
 }
 
 .menu-item:hover {
-  color: #380470;
+  color: $link-color;
 }
 
 .bm-menu {
@@ -20,4 +43,15 @@ a {
   font-size: 1.5em;
   height: 100%;
   bottom: 5%;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  padding: 0.5em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
 }
