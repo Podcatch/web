@@ -58,11 +58,10 @@ ul, ol {
       -ms-flex-align: center;
           align-items: center; }
 
-#menu-icon {
-  padding: 10px; }
-
 #title {
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  margin-left: 35%;
+  margin-top: 5%; }
 
 #meta {
   padding: 4px; }
@@ -84,6 +83,24 @@ a {
   color: white;
   text-decoration: none; }
 
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+  margin-bottom: 5px; }
+
+.bm-burger-bars {
+  background: white; }
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px; }
+
+.bm-cross {
+  background: white; }
+
 .menu-item {
   -webkit-transition: color 5s ease;
   transition: color 5s ease;
@@ -91,7 +108,7 @@ a {
   padding: 15px 0 0 15px; }
 
 .menu-item:hover {
-  color: #380470; }
+  color: #8A2BE2; }
 
 .bm-menu {
   background: #100120;
@@ -99,6 +116,15 @@ a {
   font-size: 1.5em;
   height: 100%;
   bottom: 5%; }
+
+/* Wrapper for item list */
+.bm-item-list {
+  padding: 0.5em; }
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed; }
 
 .overlay {
   position: fixed;

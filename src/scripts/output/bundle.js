@@ -21594,11 +21594,6 @@
 	                    { className: 'header-section' },
 	                    _react2.default.createElement(_Menu2.default, null),
 	                    _react2.default.createElement(
-	                        'i',
-	                        { className: 'material-icons clickable' },
-	                        'menu'
-	                    ),
-	                    _react2.default.createElement(
 	                        'div',
 	                        { id: 'title' },
 	                        'Podcatch'
@@ -21672,11 +21667,6 @@
 	                _react2.default.createElement(
 	                    'a',
 	                    { id: 'home', className: 'menu-item', href: '/discover' },
-	                    _react2.default.createElement(
-	                        'i',
-	                        { className: 'material-icons' },
-	                        'public'
-	                    ),
 	                    'Discover'
 	                ),
 	                _react2.default.createElement(
@@ -21696,7 +21686,7 @@
 	                ),
 	                _react2.default.createElement(
 	                    'a',
-	                    { onClick: this.showSettings, className: 'menu-item--small', href: '' },
+	                    { onClick: this.showSettings, className: 'menu-item', href: '' },
 	                    'Settings'
 	                )
 	            );
