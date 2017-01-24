@@ -10,14 +10,11 @@ class Menu extends React.Component {
         return(
             <Burger>
                 <a id="home" className="menu-item" href="/">Home</a>
-                <a id="home" className="menu-item" href="/discover">
-                    <i className="material-icons">public</i>
-                    Discover
-                </a>
+                <a id="home" className="menu-item" href="/discover">Discover</a>
                 <a id="about" className="menu-item" href="/new">New Releases</a>
                 <a id="contact" className="menu-item" href="/categories">Categories</a>
                 <a id="home" className="menu-item" href="/profile">Profile</a>
-                <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+                <a onClick={this.showSettings} className="menu-item" href="">Settings</a>
             </Burger>
         )
     }
