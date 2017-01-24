@@ -23,8 +23,8 @@ class Header extends React.Component {
     render() {
         return (
             <div id="header">
+            <Menu/>
             <div className="header-section">
-                <Menu/>
                 {/* <i className="material-icons clickable">menu</i> */}
                 <div id="title">Podcatch</div>
             </div>

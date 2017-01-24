@@ -21589,10 +21589,10 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'header' },
+	                _react2.default.createElement(_Menu2.default, null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'header-section' },
-	                    _react2.default.createElement(_Menu2.default, null),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { id: 'title' },
