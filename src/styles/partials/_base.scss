@@ -8,6 +8,7 @@
 
 body {
   font-family: $font-sans-serif;
+  background-color: $color-offwhite;
 }
 
 h1 {
@@ -58,7 +59,7 @@ button {
   overflow-x: hidden;
   display: flex;
   align-items: stretch;
-  background: $color-dark; // :c
+  background: $color-offwhite; // :c
 }
 
 .banner {
