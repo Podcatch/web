@@ -28,6 +28,7 @@ class Header extends React.Component {
                 {/* <i className="material-icons clickable">menu</i> */}
                 <div id="title">Podcatch</div>
             </div>
+            {/* <i className="material-icons" id="person">person</i> */}
             <i className="material-icons" id="search">search</i>
             </div>
         )

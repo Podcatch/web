@@ -21601,6 +21601,11 @@
 	                ),
 	                _react2.default.createElement(
 	                    'i',
+	                    { className: 'material-icons', id: 'person' },
+	                    'person'
+	                ),
+	                _react2.default.createElement(
+	                    'i',
 	                    { className: 'material-icons', id: 'search' },
 	                    'search'
 	                )

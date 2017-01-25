@@ -40,10 +40,10 @@ ul, ol {
           justify-content: space-between;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
   #header .clickable {
-    margin: 0 12px;
+    margin: 17px 17px;
     cursor: pointer;
-    -webkit-transition: .25s;
-    transition: .25s; }
+    -webkit-transition: 0.5s;
+    transition: 0.5s; }
     #header .clickable:hover {
       background: #5907b1; }
 
@@ -74,9 +74,11 @@ ul, ol {
   line-height: 1;
   font-weight: bold; }
 
-#search {
+#search, #person {
   margin-right: 5%;
   margin-top: 1.6%; }
+  #search:hover, #person:hover {
+    cursor: pointer; }
 
 a {
   color: white;
