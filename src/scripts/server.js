@@ -1,14 +1,17 @@
 // Initialize
 "use strict";
+const fs = require('fs')
 const firebase = require('firebase')
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
 
+let grabKey = fs.readFileSync(__dirname + '/apiKey.txt', 'utf8', (err, data) => {})
+
 // Configuration
 const config = {
-  apiKey: "AIzaSyC7COuJa0Ti80hKXgFSy4ZnKh893WpooXc",
+  apiKey: grabKey,
   authDomain: "podcatch-4ec51.firebaseapp.com",
   databaseURL: "https://podcatch-4ec51.firebaseio.com",
   storageBucket: "podcatch-4ec51.appspot.com",
