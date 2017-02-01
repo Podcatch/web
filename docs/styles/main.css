@@ -344,6 +344,25 @@ html, body, #wrap {
   margin-top: 15%;
   margin-left: 12%; }
 
+#sliderWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.featuredShow {
+  margin: 10% 5px 0 5px; }
+  .featuredShow:hover {
+    cursor: pointer; }
+
+#left-arrow:hover, #right-arrow:hover {
+  cursor: pointer; }
+
 body {
   font-family: Roboto, sans-serif;
   background-color: #dedeed; }

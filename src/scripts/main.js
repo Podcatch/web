@@ -7,6 +7,7 @@ import Footer from '../components/Footer/Footer.js'
 import Modal from '../components/Modal/Modal.js'
 import Chart from '../components/Chart/Chart.js'
 import Player from '../components/Player/Player.js'
+import Slider from '../components/Slider/Slider.js'
 
 // Convert to conditional rendering based on menu selection
 class App extends React.Component {
@@ -14,7 +15,8 @@ class App extends React.Component {
         return(
             <div>
                 <Header/>
-                <Chart/>
+                *<Chart/>*
+                {/* <Slider/> */}
                 <Player/>
             </div>
         )

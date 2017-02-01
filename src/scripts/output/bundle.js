@@ -76,6 +76,10 @@
 
 	var _Player2 = _interopRequireDefault(_Player);
 
+	var _Slider = __webpack_require__(325);
+
+	var _Slider2 = _interopRequireDefault(_Slider);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -104,7 +108,9 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_Header2.default, null),
+	                '*',
 	                _react2.default.createElement(_Chart2.default, null),
+	                '*',
 	                _react2.default.createElement(_Player2.default, null)
 	            );
 	        }
@@ -49906,6 +49912,84 @@
 		&& buffer.sampleRate != null //swims like AudioBuffer
 		&& typeof buffer.getChannelData === 'function' //quacks like AudioBuffer
 	};
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var slider = ["http://is1.mzstatic.com/image/thumb/Podcasts71/v4/80/28/20/802820a2-037b-db88-ae91-ce28f9c34de7/mza_1502601857435479787.jpg/200x200bb-85.jpg", "http://is3.mzstatic.com/image/thumb/Podcasts71/v4/74/d5/9b/74d59b0c-7cc6-4157-59a6-7c49a7bdfa9a/mza_5419881805250857911.jpg/200x200bb-85.jpg", "http://is1.mzstatic.com/image/thumb/Podcasts62/v4/38/2f/32/382f3221-7c4f-4efe-839c-4fca7703abe8/mza_4597663477286342554.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts62/v4/32/4c/25/324c250a-bec6-ae7f-fdc6-5f713e8fd16e/mza_1340522299646167087.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts122/v4/2a/2b/9f/2a2b9f4a-8696-847a-1094-88ccf27d59d0/mza_912503573513181982.jpg/200x200bb-85.jpg"];
+
+	function getSlide(number) {
+	  var showTail = number + 5;
+	  // Slice the array according to the argument value
+	  // 1 = 1-5, 2 = 6-10, 3 = 11 - 15, etc.
+	  var updatedSlide = slider.slice(number, showTail);
+	  return updatedSlide;
+	}
+
+	var Slider = function (_React$Component) {
+	  _inherits(Slider, _React$Component);
+
+	  function Slider(props) {
+	    _classCallCheck(this, Slider);
+
+	    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+
+	    _this.state = {
+	      position: 0
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Slider, [{
+	    key: "nextSlide",
+	    value: function nextSlide() {
+	      this.position = this.position + 1;
+	      getSlide(this.position);
+	    }
+	  }, {
+	    key: "lastSlide",
+	    value: function lastSlide() {
+	      this.position = this.position - 1;
+	      getSlide(this.position);
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { id: "sliderWrap" },
+	        slider.map(function (image) {
+	          return _react2.default.createElement("img", { src: image, className: "featuredShow" });
+	        })
+	      );
+	    }
+	  }]);
+
+	  return Slider;
+	}(_react2.default.Component);
+
+	exports.default = Slider;
 
 /***/ }
 /******/ ]);

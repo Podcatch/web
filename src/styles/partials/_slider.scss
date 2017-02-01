@@ -1,0 +1,18 @@
+#sliderWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featuredShow {
+  margin: 10% 5px 0 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#left-arrow, #right-arrow {
+  &:hover {
+    cursor: pointer;
+  }
+}
