@@ -7,6 +7,7 @@ let slider = ["http://is1.mzstatic.com/image/thumb/Podcasts71/v4/80/28/20/802820
   "http://is4.mzstatic.com/image/thumb/Podcasts122/v4/2a/2b/9f/2a2b9f4a-8696-847a-1094-88ccf27d59d0/mza_912503573513181982.jpg/200x200bb-85.jpg",
 ]
 
+// Get value of the current slide
 function getSlide(number) {
   const showTail = number + 5
   // Slice the array according to the argument value
@@ -35,15 +36,16 @@ class Slider extends React.Component {
 
   render() {
     return (
-      <div id="sliderWrap">
-      {
-          slider.map(function(image){
-            return <img src={image} className="featuredShow"></img>
-          })
-      }
-      </div>
-    )
+        <div id="sliderWrap">
+        <h1 className='categoryName'>Placeholder Category</h1>
+          {
+            slider.map(function(image){
+              return <img src={image} className="featuredShow"></img>
+            })
+          }
+        </div>
+      )
+    }
   }
-}
 
 export default Slider

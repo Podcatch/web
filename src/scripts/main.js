@@ -15,8 +15,8 @@ class App extends React.Component {
         return(
             <div>
                 <Header/>
-                *<Chart/>*
-                {/* <Slider/> */}
+                <Slider/>
+                {/*<Chart/>*/}
                 <Player/>
             </div>
         )

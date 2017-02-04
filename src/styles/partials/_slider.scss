@@ -1,7 +1,13 @@
 #sliderWrap {
   display: flex;
+  position: relative;
   justify-content: center;
-  align-items: center;
+}
+
+.categoryName {
+  position: absolute;
+  left: 9.4%;
+  top: 25%;
 }
 
 .featuredShow {

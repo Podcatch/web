@@ -108,9 +108,7 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_Header2.default, null),
-	                '*',
-	                _react2.default.createElement(_Chart2.default, null),
-	                '*',
+	                _react2.default.createElement(_Slider2.default, null),
 	                _react2.default.createElement(_Player2.default, null)
 	            );
 	        }
@@ -49939,6 +49937,7 @@
 
 	var slider = ["http://is1.mzstatic.com/image/thumb/Podcasts71/v4/80/28/20/802820a2-037b-db88-ae91-ce28f9c34de7/mza_1502601857435479787.jpg/200x200bb-85.jpg", "http://is3.mzstatic.com/image/thumb/Podcasts71/v4/74/d5/9b/74d59b0c-7cc6-4157-59a6-7c49a7bdfa9a/mza_5419881805250857911.jpg/200x200bb-85.jpg", "http://is1.mzstatic.com/image/thumb/Podcasts62/v4/38/2f/32/382f3221-7c4f-4efe-839c-4fca7703abe8/mza_4597663477286342554.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts62/v4/32/4c/25/324c250a-bec6-ae7f-fdc6-5f713e8fd16e/mza_1340522299646167087.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts122/v4/2a/2b/9f/2a2b9f4a-8696-847a-1094-88ccf27d59d0/mza_912503573513181982.jpg/200x200bb-85.jpg"];
 
+	// Get value of the current slide
 	function getSlide(number) {
 	  var showTail = number + 5;
 	  // Slice the array according to the argument value
@@ -49979,6 +49978,11 @@
 	      return _react2.default.createElement(
 	        "div",
 	        { id: "sliderWrap" },
+	        _react2.default.createElement(
+	          "h1",
+	          { className: "categoryName" },
+	          "Placeholder Category"
+	        ),
 	        slider.map(function (image) {
 	          return _react2.default.createElement("img", { src: image, className: "featuredShow" });
 	        })

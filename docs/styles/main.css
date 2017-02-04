@@ -348,12 +348,15 @@ html, body, #wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
+          justify-content: center; }
+
+.categoryName {
+  position: absolute;
+  left: 9.4%;
+  top: 25%; }
 
 .featuredShow {
   margin: 10% 5px 0 5px; }
