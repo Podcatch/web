@@ -354,21 +354,17 @@ html, body, #wrap {
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-  #sliderWrap:first-child {
-    padding-bottom: 5%;
-    margin-top: 6%; }
+      flex-wrap: wrap;
+  margin-bottom: 3%;
+  padding: 7% 0 7% 0; }
   #sliderWrap:nth-child(even) {
-    margin-bottom: 3%;
-    padding: 7% 0 7% 0;
     background-color: #FFFFFF; }
-
-#imageRow {
-  margin-top: 3%; }
 
 .categoryName {
   position: absolute;
-  left: 9.4%; }
+  left: 9.4%;
+  bottom: -30%;
+  z-index: 10; }
 
 .featuredShow {
   margin: 0px 5px 0 5px; }

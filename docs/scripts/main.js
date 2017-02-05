@@ -18,6 +18,8 @@ class App extends React.Component {
                 <div id="contentContainer">
                     <Slider/>
                     <Slider/>
+                    <Slider/>
+                    <Slider/>
                 </div>
                 {/*<Chart/>*/}
                 <Player/>
