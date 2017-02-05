@@ -38,7 +38,8 @@ ul, ol {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  z-index: 10; }
   #header .clickable {
     margin: 17px 17px;
     cursor: pointer;
