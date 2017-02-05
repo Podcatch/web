@@ -352,15 +352,26 @@ html, body, #wrap {
   position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  #sliderWrap:first-child {
+    padding-bottom: 5%;
+    margin-top: 6%; }
+  #sliderWrap:nth-child(even) {
+    margin-bottom: 3%;
+    padding: 7% 0 7% 0;
+    background-color: #FFFFFF; }
+
+#imageRow {
+  margin-top: 3%; }
 
 .categoryName {
   position: absolute;
-  left: 9.4%;
-  top: 25%; }
+  left: 9.4%; }
 
 .featuredShow {
-  margin: 10% 5px 0 5px; }
+  margin: 0px 5px 0 5px; }
   .featuredShow:hover {
     cursor: pointer; }
 

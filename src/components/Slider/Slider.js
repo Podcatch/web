@@ -1,5 +1,5 @@
 import React from 'react'
-
+let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json'
 let slider = ["http://is1.mzstatic.com/image/thumb/Podcasts71/v4/80/28/20/802820a2-037b-db88-ae91-ce28f9c34de7/mza_1502601857435479787.jpg/200x200bb-85.jpg",
   "http://is3.mzstatic.com/image/thumb/Podcasts71/v4/74/d5/9b/74d59b0c-7cc6-4157-59a6-7c49a7bdfa9a/mza_5419881805250857911.jpg/200x200bb-85.jpg",
   "http://is1.mzstatic.com/image/thumb/Podcasts62/v4/38/2f/32/382f3221-7c4f-4efe-839c-4fca7703abe8/mza_4597663477286342554.jpg/200x200bb-85.jpg",
@@ -37,12 +37,14 @@ class Slider extends React.Component {
   render() {
     return (
         <div id="sliderWrap">
-        <h1 className='categoryName'>Placeholder Category</h1>
+        <span><h1 className='categoryName'>Placeholder Category</h1></span>
+        <div id="imageRow">
           {
             slider.map(function(image){
               return <img src={image} className="featuredShow"></img>
             })
           }
+          </div>
         </div>
       )
     }

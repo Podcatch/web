@@ -108,8 +108,14 @@
 	                'div',
 	                null,
 	                _react2.default.createElement(_Header2.default, null),
-	                _react2.default.createElement(_Slider2.default, null),
-	                _react2.default.createElement(_Slider2.default, null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { id: 'contentContainer' },
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, null)
+	                ),
 	                _react2.default.createElement(_Player2.default, null)
 	            );
 	        }
@@ -49981,13 +49987,21 @@
 	        'div',
 	        { id: 'sliderWrap' },
 	        _react2.default.createElement(
-	          'h1',
-	          { className: 'categoryName' },
-	          'Placeholder Category'
+	          'span',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'categoryName' },
+	            'Placeholder Category'
+	          )
 	        ),
-	        slider.map(function (image) {
-	          return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
-	        })
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'imageRow' },
+	          slider.map(function (image) {
+	            return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
+	          })
+	        )
 	      );
 	    }
 	  }]);
