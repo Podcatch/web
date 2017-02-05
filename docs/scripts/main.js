@@ -16,6 +16,7 @@ class App extends React.Component {
             <div>
                 <Header/>
                 <Slider/>
+                <Slider/>
                 {/*<Chart/>*/}
                 <Player/>
             </div>
