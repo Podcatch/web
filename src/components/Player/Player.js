@@ -19,7 +19,7 @@ class Player extends React.Component {
 
     render() {
         return (
-<div id='wrap'>
+<div id='playerWrap'>
   <article id='content'></article>
   <footer id='playbar'>
     <div id='buttons'>

@@ -14,15 +14,17 @@ class App extends React.Component {
     render() {
         return(
             <div>
-                <Header/>
                 <div id="contentContainer">
-                    <Slider/>
-                    <Slider/>
-                    <Slider/>
-                    <Slider/>
+                    <Header/>
+                        <Slider/>
+                        <Slider/>
+                        <Slider/>
+                        <Slider/>
+                        <Slider/>
+                        <Slider/>
+                        <Player/>
+                        {/*<Chart/>*/}
                 </div>
-                {/*<Chart/>*/}
-                <Player/>
             </div>
         )
     }
