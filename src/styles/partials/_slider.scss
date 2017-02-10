@@ -7,13 +7,13 @@
   padding: 7% 0 7% 0;
   // &:first-child { margin-top: 15%; }
   &:nth-child(even) { background-color: #FFFFFF; }
+  // &:last-child{ bottom: 0; }
 }
 
 // #imageRow { margin-top: 3%; }
 
 .categoryName {
-  position: absolute;
-  left: 9.4%;
+  // left: 9.4%;
   bottom: -30%;
   z-index: 10;
 }

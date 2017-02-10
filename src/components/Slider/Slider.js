@@ -36,7 +36,7 @@ class Slider extends React.Component {
 
   render() {
     return (
-        <div id="sliderWrap">
+        <div id="sliderWrap"> 
         <span><h1 className='categoryName'>Placeholder Category</h1></span>
         <div id="imageRow">
           {

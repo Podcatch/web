@@ -107,16 +107,18 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_Header2.default, null),
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'contentContainer' },
+	                    _react2.default.createElement(_Header2.default, null),
 	                    _react2.default.createElement(_Slider2.default, null),
 	                    _react2.default.createElement(_Slider2.default, null),
 	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null)
-	                ),
-	                _react2.default.createElement(_Player2.default, null)
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Player2.default, null)
+	                )
 	            );
 	        }
 	    }]);
@@ -49475,7 +49477,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { id: 'wrap' },
+	        { id: 'playerWrap' },
 	        _react2.default.createElement('article', { id: 'content' }),
 	        _react2.default.createElement(
 	          'footer',
