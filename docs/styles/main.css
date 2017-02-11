@@ -361,6 +361,9 @@ html, body, #wrap {
   #sliderWrap:nth-child(even) {
     background-color: #FFFFFF; }
 
+#imageRow {
+  margin-top: 3%; }
+
 .categoryName {
   bottom: -30%;
   z-index: 10; }
