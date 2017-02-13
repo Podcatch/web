@@ -49947,15 +49947,6 @@
 	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json';
 	var slider = ["http://is1.mzstatic.com/image/thumb/Podcasts71/v4/80/28/20/802820a2-037b-db88-ae91-ce28f9c34de7/mza_1502601857435479787.jpg/200x200bb-85.jpg", "http://is3.mzstatic.com/image/thumb/Podcasts71/v4/74/d5/9b/74d59b0c-7cc6-4157-59a6-7c49a7bdfa9a/mza_5419881805250857911.jpg/200x200bb-85.jpg", "http://is1.mzstatic.com/image/thumb/Podcasts62/v4/38/2f/32/382f3221-7c4f-4efe-839c-4fca7703abe8/mza_4597663477286342554.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts62/v4/32/4c/25/324c250a-bec6-ae7f-fdc6-5f713e8fd16e/mza_1340522299646167087.jpg/200x200bb-85.jpg", "http://is4.mzstatic.com/image/thumb/Podcasts122/v4/2a/2b/9f/2a2b9f4a-8696-847a-1094-88ccf27d59d0/mza_912503573513181982.jpg/200x200bb-85.jpg"];
 
-	// Get value of the current slide
-	function getSlide(number) {
-	  var showTail = number + 5;
-	  // Slice the array according to the argument value
-	  // 1 = 1-5, 2 = 6-10, 3 = 11 - 15, etc.
-	  var updatedSlide = slider.slice(number, showTail);
-	  return updatedSlide;
-	}
-
 	var Slider = function (_React$Component) {
 	  _inherits(Slider, _React$Component);
 
@@ -49964,13 +49955,53 @@
 
 	    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
 
-	    _this.state = {
-	      position: 0
-	    };
+	    _this.state = { names: [], images: [], modifiedImages: [], summaries: [], showID: [], position: 0 };
 	    return _this;
 	  }
 
 	  _createClass(Slider, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var that = this;
+	      fetch(topFifty).then(function (response) {
+	        return response.json().then(function (json) {
+	          var names = [],
+	              images = [],
+	              modifiedImages = [],
+	              summaries = [],
+	              showID = [],
+	              featuredSize = '200x200';
+	          json.feed.entry.forEach(function (datum) {
+	            names.push(datum["im:name"].label);
+	            images.push(datum["im:image"][0].label);
+	            showID.push(datum.id.attributes["im:id"]);
+	          });
+
+	          // Take the image url and change the size to a non-preset from the API
+	          images.forEach(function (i) {
+	            var str = i;
+	            str = str.replace(/\d{2}x\d{2}|\d{3}x\d{3}/, featuredSize);
+	            modifiedImages.push(str);
+	          });
+
+	          console.log(modifiedImages);
+	          that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
+	        });
+	      });
+	    }
+
+	    // Get value of the current slide
+
+	  }, {
+	    key: 'getSlide',
+	    value: function getSlide(number) {
+	      var showTail = number + 5;
+	      // Slice the array according to the argument value
+	      // 1 = 1-5, 2 = 6-10, 3 = 11 - 15, etc.
+	      var updatedSlide = slider.slice(number, showTail);
+	      return updatedSlide;
+	    }
+	  }, {
 	    key: 'nextSlide',
 	    value: function nextSlide() {
 	      this.position = this.position + 1;
@@ -49994,13 +50025,13 @@
 	          _react2.default.createElement(
 	            'h1',
 	            { className: 'categoryName' },
-	            'Placeholder Category'
+	            'Most Popular Shows'
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'imageRow' },
-	          slider.map(function (image) {
+	          this.state.modifiedImages.map(function (image) {
 	            return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
 	          })
 	        )
