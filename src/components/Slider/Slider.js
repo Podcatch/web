@@ -33,23 +33,13 @@ class Slider extends React.Component {
 
   // Get value of the current slide
   getSlide(number) {
-    const showTail = number + 5
-    // Slice the array according to the argument value
-    // 1 = 1-5, 2 = 6-10, 3 = 11 - 15, etc.
-    let updatedSlide = slider.slice(number, showTail)
-    return updatedSlide
+    // Show five slides at a time
+    // number 0 -> 1 - 5
+    // number 1 -> 6 - 10
+    // number 2 -> 7 - 11 and so on...
   }
 
-  nextSlide() {
-    this.position = this.position + 1
-    getSlide(this.position)
-  }
-
-  lastSlide() {
-    this.position = this.position - 1
-    getSlide(this.position)
-  }
-
+  // render a getSlide function to show only a few shows at a time
   render() {
     return (
         <div id="sliderWrap"> 
