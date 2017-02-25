@@ -35193,7 +35193,7 @@
 	                        modifiedImages.push(str);
 	                    });
 
-	                    console.log(modifiedImages);
+	                    // console.log(modifiedImages)
 	                    that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
 	                });
 	            });
@@ -49983,28 +49983,39 @@
 	            modifiedImages.push(str);
 	          });
 
-	          console.log(modifiedImages);
+	          // console.log(modifiedImages)
 	          that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
+	          that.getSlide(10);
 	        });
 	      });
 	    }
 
-	    // Get value of the current slide
+	    // Display five shows at a time
 
 	  }, {
 	    key: 'getSlide',
-	    value: function getSlide(number) {}
-	    // Show five slides at a time
-	    // number 0 -> 1 - 5
-	    // number 1 -> 6 - 10
-	    // number 2 -> 7 - 11 and so on...
+	    value: function getSlide(number) {
+	      var count = number,
+	          currentShows = [];
 
+	      for (var i = count; i < count + 5; i++) {
+	        currentShows.push(this.state.modifiedImages[i]);
+	      }
+
+	      console.log(currentShows);
+	      console.log('-------------------------------------');
+	      return currentShows;
+	    }
 
 	    // render a getSlide function to show only a few shows at a time
 
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var images = this.getSlide(10).map(function (image) {
+	        return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
+	      });
+
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'sliderWrap' },
@@ -50020,9 +50031,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'imageRow' },
-	          this.state.modifiedImages.map(function (image) {
-	            return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
-	          })
+	          images
 	        )
 	      );
 	    }

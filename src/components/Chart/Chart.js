@@ -27,7 +27,7 @@ class Chart extends React.Component {
                     modifiedImages.push(str)
                 })
 
-                console.log(modifiedImages)
+                // console.log(modifiedImages)
                 that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID })
             })
         })
