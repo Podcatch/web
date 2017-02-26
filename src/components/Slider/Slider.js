@@ -4,7 +4,13 @@ let topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json'
 class Slider extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { names: [], images: [], modifiedImages: [], summaries: [], showID: [], position: 0 }
+    this.state = {
+      names: [], 
+      images: [], 
+      modifiedImages: [], 
+      summaries: [], 
+      showID: [], 
+    }
   }
 
   componentDidMount() {
@@ -46,15 +52,21 @@ class Slider extends React.Component {
     return currentShows
   }
 
+  // TODO: 
+  // - Slide re-rendering (scrolling left and right to see different shows)
+  // - Change category based on component props
+  // - Featured slider
+  // - Render each show as a component and when clicked, display show episodes and play episodes
+
   // render a getSlide function to show only a few shows at a time
   render() {
-    const images = this.getSlide(10).map(function(image) {
+    const images = this.getSlide(12).map(function(image) {
       return <img src={image} className="featuredShow"></img>
     })
 
     return (
         <div id="sliderWrap"> 
-        <span><h1 className='categoryName'>Most Popular Shows</h1></span>
+        <span><h1 className='categoryName'>{this.props.category}</h1></span>
           <div id="imageRow">
             {images}
           </div>

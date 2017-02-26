@@ -16,12 +16,12 @@ class App extends React.Component {
             <div>
                 <div id="contentContainer">
                     <Header/>
-                        <Slider/>
-                        <Slider/>
-                        <Slider/>
-                        <Slider/>
-                        <Slider/>
-                        <Slider/>
+                        <Slider category="Most Popular Podcasts"/>
+                        <Slider category="Shows That Make Us Laugh"/>
+                        <Slider category="International News"/>
+                        <Slider category="3Spooky5Me Podcasts"/>
+                        <Slider category="Science Podcasts"/>
+                        <Slider category="Business and Entrepreneurship"/>
                         <Player/>
                         {/*<Chart/>*/}
                 </div>

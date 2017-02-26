@@ -111,12 +111,12 @@
 	                    'div',
 	                    { id: 'contentContainer' },
 	                    _react2.default.createElement(_Header2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
-	                    _react2.default.createElement(_Slider2.default, null),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Most Popular Podcasts' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Shows That Make Us Laugh' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'International News' }),
+	                    _react2.default.createElement(_Slider2.default, { category: '3Spooky5Me Podcasts' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Science Podcasts' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Business and Entrepreneurship' }),
 	                    _react2.default.createElement(_Player2.default, null)
 	                )
 	            );
@@ -21598,6 +21598,7 @@
 	        }
 	    }, {
 	        key: 'render',
+	        /*¸   AaQ*/
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
@@ -49954,7 +49955,13 @@
 
 	    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
 
-	    _this.state = { names: [], images: [], modifiedImages: [], summaries: [], showID: [], position: 0 };
+	    _this.state = {
+	      names: [],
+	      images: [],
+	      modifiedImages: [],
+	      summaries: [],
+	      showID: []
+	    };
 	    return _this;
 	  }
 
@@ -50007,12 +50014,18 @@
 	      return currentShows;
 	    }
 
+	    // TODO: 
+	    // - Slide re-rendering (scrolling left and right to see different shows)
+	    // - Change category based on component props
+	    // - Featured slider
+	    // - Render each show as a component and when clicked, display show episodes and play episodes
+
 	    // render a getSlide function to show only a few shows at a time
 
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var images = this.getSlide(10).map(function (image) {
+	      var images = this.getSlide(12).map(function (image) {
 	        return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
 	      });
 
@@ -50025,7 +50038,7 @@
 	          _react2.default.createElement(
 	            'h1',
 	            { className: 'categoryName' },
-	            'Most Popular Shows'
+	            this.props.category
 	          )
 	        ),
 	        _react2.default.createElement(
