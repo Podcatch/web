@@ -21598,7 +21598,6 @@
 	        }
 	    }, {
 	        key: 'render',
-	        /*¸   AaQ*/
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
@@ -49945,7 +49944,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json';
+	var topFifty = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/json',
+	    genreSearch = 'https://itunes.apple.com/us/rss/toppodcasts/limit=50/genre=',
+	    globalCount = 0;
 
 	var Slider = function (_React$Component) {
 	  _inherits(Slider, _React$Component);
@@ -49955,28 +49956,39 @@
 
 	    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
 
-	    _this.state = {
-	      names: [],
-	      images: [],
-	      modifiedImages: [],
-	      summaries: [],
-	      showID: []
-	    };
+	    _this.state = { names: [], images: [], modifiedImages: [], summaries: [], showID: [] };
 	    return _this;
 	  }
 
+	  // Display five shows at a time
+
+
 	  _createClass(Slider, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    key: 'getSlide',
+	    value: function getSlide(number) {
+	      var count = number,
+	          currentShows = [];
+	      for (var i = count; i < count + 5; i++) {
+	        currentShows.push(this.state.modifiedImages[i]);
+	      }
+	      return currentShows;
+	    }
+
+	    // Display shows based on show category
+
+	  }, {
+	    key: 'displayCategory',
+	    value: function displayCategory(category) {
 	      var that = this;
-	      fetch(topFifty).then(function (response) {
+	      // Fetch JSON based on category code
+	      fetch(genreSearch + category + '/explicit=true/json').then(function (response) {
 	        return response.json().then(function (json) {
 	          var names = [],
 	              images = [],
 	              modifiedImages = [],
-	              summaries = [],
 	              showID = [],
 	              featuredSize = '200x200';
+
 	          json.feed.entry.forEach(function (datum) {
 	            names.push(datum["im:name"].label);
 	            images.push(datum["im:image"][0].label);
@@ -49990,28 +50002,11 @@
 	            modifiedImages.push(str);
 	          });
 
-	          // console.log(modifiedImages)
+	          console.log(response.url);
 	          that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
 	          that.getSlide(10);
 	        });
 	      });
-	    }
-
-	    // Display five shows at a time
-
-	  }, {
-	    key: 'getSlide',
-	    value: function getSlide(number) {
-	      var count = number,
-	          currentShows = [];
-
-	      for (var i = count; i < count + 5; i++) {
-	        currentShows.push(this.state.modifiedImages[i]);
-	      }
-
-	      console.log(currentShows);
-	      console.log('-------------------------------------');
-	      return currentShows;
 	    }
 
 	    // TODO: 
@@ -50025,10 +50020,10 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var images = this.getSlide(12).map(function (image) {
+	      var images = this.getSlide(10).map(function (image) {
 	        return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
 	      });
-
+	      this.displayCategory(1321);
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'sliderWrap' },
