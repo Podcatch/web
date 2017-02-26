@@ -1,0 +1,70 @@
+{
+  "show": {
+    "entry": [
+      {
+        "genre": "Arts",
+        "code": 1301
+      },
+      {
+        "genre": "Business",
+        "code": 1321
+      },
+      {
+        "genre": "Comedy",
+        "code": 1303
+      },
+      {
+        "genre": "Education",
+        "code": 1304
+      },
+      {
+        "genre": "Games & Hobbies",
+        "code": 1323
+      },
+      {
+        "genre": "Government & Organizations",
+        "code": 1325
+      },
+      {
+        "genre": "Health",
+        "code": 1307
+      },
+      {
+        "genre": "Kids & Family",
+        "code": 1305
+      },
+      {
+        "genre": "Music",
+        "code": 1310
+      },
+      {
+        "genre": "News & Politics",
+        "code": 1311
+      },
+      {
+        "genre": "Religion and Spirituality",
+        "code": 1314
+      },
+      {
+        "genre": "Science & Medicine",
+        "code": 1315
+      },
+      {
+        "genre": "Society & Culture",
+        "code": 1324
+      },
+      {
+        "genre": "Sports & Recreation",
+        "code": 1316
+      },
+      {
+        "genre": "Technology",
+        "code": 1318
+      },
+      {
+        "genre": "TV & Film",
+        "code": 1309
+      }
+    ]
+  }
+}
