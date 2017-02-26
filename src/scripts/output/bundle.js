@@ -111,12 +111,12 @@
 	                    'div',
 	                    { id: 'contentContainer' },
 	                    _react2.default.createElement(_Header2.default, null),
-	                    _react2.default.createElement(_Slider2.default, { category: 'Most Popular Podcasts' }),
-	                    _react2.default.createElement(_Slider2.default, { category: 'Shows That Make Us Laugh' }),
-	                    _react2.default.createElement(_Slider2.default, { category: 'International News' }),
-	                    _react2.default.createElement(_Slider2.default, { category: '3Spooky5Me Podcasts' }),
-	                    _react2.default.createElement(_Slider2.default, { category: 'Science Podcasts' }),
-	                    _react2.default.createElement(_Slider2.default, { category: 'Business and Entrepreneurship' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Society & Culture', code: '1324' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Sports & Recreation', code: '1316' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Religion and Spirituality', code: '1314' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Science & Medicine', code: '1315' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Games & Hobbies', code: '1323' }),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Government & Organizations', code: '1325' }),
 	                    _react2.default.createElement(_Player2.default, null)
 	                )
 	            );
@@ -50003,6 +50003,7 @@
 	          });
 
 	          console.log(response.url);
+
 	          that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID });
 	          that.getSlide(10);
 	        });
@@ -50023,7 +50024,8 @@
 	      var images = this.getSlide(10).map(function (image) {
 	        return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
 	      });
-	      this.displayCategory(1321);
+	      this.displayCategory(this.props.code);
+
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'sliderWrap' },

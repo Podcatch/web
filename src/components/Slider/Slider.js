@@ -39,6 +39,7 @@ class Slider extends React.Component {
           })
 
         console.log(response.url)
+
         that.setState({ names: names, images: images, modifiedImages: modifiedImages, showID: showID })
         that.getSlide(10)
       })
@@ -53,10 +54,9 @@ class Slider extends React.Component {
 
   // render a getSlide function to show only a few shows at a time
   render() {
-    const images = this.getSlide(10).map(function(image) {
-      return <img src={image} className="featuredShow"></img>
-    })
-    this.displayCategory(1321)
+    const images = this.getSlide(10).map(function(image) { return <img src={image} className="featuredShow"></img> })
+    this.displayCategory(this.props.code)
+
     return (
         <div id="sliderWrap"> 
         <span><h1 className='categoryName'>{this.props.category}</h1></span>
@@ -65,7 +65,7 @@ class Slider extends React.Component {
           </div>
         </div>
       )
-    }
   }
+}
 
 export default Slider
