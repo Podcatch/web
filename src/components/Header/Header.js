@@ -19,7 +19,7 @@ class Header extends React.Component {
     testAlert() {
         alert('The menu state has been changed!')
     }
-ZA/*¸   AaQ*/
+
     render() {
         return (
             <div id="header">
