@@ -48,7 +48,6 @@ class Slider extends React.Component {
 
   // TODO: 
   // - Slide re-rendering (scrolling left and right to see different shows)
-  // - Change category based on component props
   // - Featured slider
   // - Render each show as a component and when clicked, display show episodes and play episodes
 
