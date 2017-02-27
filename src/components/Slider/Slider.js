@@ -51,9 +51,8 @@ class Slider extends React.Component {
   // - Featured slider
   // - Render each show as a component and when clicked, display show episodes and play episodes
 
-  // render a getSlide function to show only a few shows at a time
   render() {
-    const images = this.getSlide(10).map(function(image) { return <img src={image} className="featuredShow"></img> })
+    const images = this.getSlide(0).map(function(image) { return <img src={image} className="featuredShow"></img> })
     this.displayCategory(this.props.code)
 
     return (

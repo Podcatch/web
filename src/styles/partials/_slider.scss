@@ -20,7 +20,8 @@
 
 .featuredShow {
   margin: 0px 5px 0 5px;
-  &:hover {cursor: pointer;}
+  &:hover { cursor: pointer; }
+  border-radius: 5%;
 }
 
 #left-arrow, #right-arrow {

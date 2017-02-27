@@ -369,7 +369,8 @@ html, body, #wrap {
   z-index: 10; }
 
 .featuredShow {
-  margin: 0px 5px 0 5px; }
+  margin: 0px 5px 0 5px;
+  border-radius: 5%; }
   .featuredShow:hover {
     cursor: pointer; }
 

@@ -111,9 +111,9 @@
 	                    'div',
 	                    { id: 'contentContainer' },
 	                    _react2.default.createElement(_Header2.default, null),
+	                    _react2.default.createElement(_Slider2.default, { category: 'Television and Film', code: '1309' }),
 	                    _react2.default.createElement(_Slider2.default, { category: 'Society & Culture', code: '1324' }),
 	                    _react2.default.createElement(_Slider2.default, { category: 'Sports & Recreation', code: '1316' }),
-	                    _react2.default.createElement(_Slider2.default, { category: 'Religion and Spirituality', code: '1314' }),
 	                    _react2.default.createElement(_Slider2.default, { category: 'Science & Medicine', code: '1315' }),
 	                    _react2.default.createElement(_Slider2.default, { category: 'Games & Hobbies', code: '1323' }),
 	                    _react2.default.createElement(_Slider2.default, { category: 'Government & Organizations', code: '1325' }),
@@ -50015,12 +50015,10 @@
 	    // - Featured slider
 	    // - Render each show as a component and when clicked, display show episodes and play episodes
 
-	    // render a getSlide function to show only a few shows at a time
-
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var images = this.getSlide(10).map(function (image) {
+	      var images = this.getSlide(0).map(function (image) {
 	        return _react2.default.createElement('img', { src: image, className: 'featuredShow' });
 	      });
 	      this.displayCategory(this.props.code);

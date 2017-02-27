@@ -16,9 +16,9 @@ class App extends React.Component {
             <div>
                 <div id="contentContainer">
                     <Header/>
+                        <Slider category="Television and Film" code="1309"/>
                         <Slider category="Society & Culture" code="1324"/>
                         <Slider category="Sports & Recreation" code="1316"/>
-                        <Slider category="Religion and Spirituality" code="1314"/>
                         <Slider category="Science & Medicine" code="1315"/>
                         <Slider category="Games & Hobbies" code="1323"/>
                         <Slider category="Government & Organizations" code="1325"/>
