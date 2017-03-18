@@ -1,5 +1,5 @@
 # TODO
-
+* Fix the derpy slider
 * Finish adding styling to components
 * Make Podcatch homepage for login
 * Display unique suggestions and data to user once logged in (recommended subscribed, etc.)
