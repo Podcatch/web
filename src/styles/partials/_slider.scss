@@ -24,6 +24,9 @@
   border-radius: 5%;
 }
 
-#left-arrow, #right-arrow {
+.arrow {
+  border: 16px solid transparent;
   &:hover { cursor: pointer; }
+  &.left { border-right-color: black; }
+  &.right { border-left-color: black; }
 }

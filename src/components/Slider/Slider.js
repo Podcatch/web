@@ -57,10 +57,12 @@ class Slider extends React.Component {
 
     return (
         <div id="sliderWrap"> 
-        <span><h1 className='categoryName'>{this.props.category}</h1></span>
-          <div id="imageRow">
-            {images}
-          </div>
+          <span><h1 className='categoryName'>{this.props.category}</h1></span>
+            <div id="imageRow">
+              {images}
+            </div>
+          <div className='arrow left'></div>
+          <div className='arrow right'></div>
         </div>
       )
   }

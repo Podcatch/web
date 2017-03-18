@@ -1,0 +1,83 @@
+Arguments: 
+  /Users/jelanithompson/.nvm/versions/node/v7.7.3/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /Users/jelanithompson/.nvm/versions/node/v7.7.3/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+
+Yarn version: 
+  0.16.1
+
+Node version: 
+  7.7.3
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "podcatch.github.io",
+    "version": "1.0.0",
+    "description": "Client for Podcatch.",
+    "devDependencies": {
+      "babel-cli": "^6.18.0",
+      "babel-preset-latest": "^6.16.0",
+      "babel-preset-react": "^6.16.0",
+      "bcryptjs": "^2.3.0",
+      "browser-sync": "^2.17.2",
+      "del": "^2.2.2",
+      "feedparser": "^1.1.5",
+      "gulp": "^3.9.1",
+      "gulp-autoprefixer": "^3.1.1",
+      "gulp-browserify": "^0.5.1",
+      "gulp-cache": "^0.4.5",
+      "gulp-image-resize": "^0.10.0",
+      "gulp-imagemin": "^3.0.3",
+      "gulp-jade": "^1.1.0",
+      "gulp-sass": "^2.3.2",
+      "gulp-shell": "^0.5.2",
+      "ngrok": "^2.2.3",
+      "pouchdb": "^6.0.6",
+      "pouchdb-authentication": "^0.5.5",
+      "run-sequence": "^1.2.2"
+    },
+    "scripts": {
+      "start": "node scripts/src/server.js",
+      "postinstall": "gulp default"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Podcatch/podcatch.github.io.git"
+    },
+    "author": "Brandon Semilla(grandonbroseph+gh@gmail.com) and Jelani Thompson(jelani.thompson@outlook.com)",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/Podcatch/podcatch.github.io/issues"
+    },
+    "homepage": "https://github.com/Podcatch/podcatch.github.io#readme",
+    "dependencies": {
+      "audio-loader": "^0.6.0",
+      "audio-play": "^2.1.0",
+      "axios": "^0.15.3",
+      "body-parser": "^1.15.2",
+      "connect-ensure-login": "^0.1.1",
+      "express": "^4.14.0",
+      "firebase": "^3.6.1",
+      "pug": "^2.0.0-beta6",
+      "react": "^15.4.1",
+      "react-burger-menu": "^1.10.10",
+      "react-dom": "^15.4.1",
+      "request": "^2.75.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+bower manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/jelanithompson/projects/web/node_modules/ajv'

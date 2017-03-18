@@ -374,8 +374,14 @@ html, body, #wrap {
   .featuredShow:hover {
     cursor: pointer; }
 
-#left-arrow:hover, #right-arrow:hover {
-  cursor: pointer; }
+.arrow {
+  border: 16px solid transparent; }
+  .arrow:hover {
+    cursor: pointer; }
+  .arrow.left {
+    border-right-color: black; }
+  .arrow.right {
+    border-left-color: black; }
 
 body {
   font-family: Roboto, sans-serif;
