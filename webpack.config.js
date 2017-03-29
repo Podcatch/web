@@ -10,7 +10,7 @@ module.exports = {
         ],
     },
     output: {
-        path: './src/scripts/output/',
+        path: __dirname + 'src/scripts/output',
         filename: 'bundle.js'
     }
 }
